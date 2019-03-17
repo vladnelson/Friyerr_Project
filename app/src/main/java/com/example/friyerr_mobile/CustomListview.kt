@@ -11,14 +11,21 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.TextView
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Target
 import java.util.ArrayList
+import android.view.MotionEvent
+import android.text.method.Touch.onTouchEvent
+import android.view.GestureDetector
+
+
 
 
 class CustomListview(private  var acitivity: FragmentActivity?, private var listCity: ArrayList<city>, private  var context: Context?)  : RecyclerView.Adapter<ViewHolder>()
 {
+
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
         var pair :city  = listCity.get(p1)
         p0.display(pair)
@@ -31,9 +38,57 @@ class CustomListview(private  var acitivity: FragmentActivity?, private var list
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
         var inflater : LayoutInflater =  LayoutInflater.from(p0.context)
         var view: View = inflater.inflate(R.layout.listcity_layout,p0,false)
+
         return ViewHolder(view,context)
     }
+
+
 }
+
+
+class RecyclerItemClickListener(
+    context: Context,
+    recyclerView: RecyclerView,
+    private val mListener: OnItemClickListener?
+) : RecyclerView.OnItemTouchListener {
+
+    internal var mGestureDetector: GestureDetector
+
+    interface OnItemClickListener {
+        fun onItemClick(view: View, position: Int)
+
+        fun onLongItemClick(view: View?, position: Int)
+    }
+
+    init {
+        mGestureDetector = GestureDetector(context, object : GestureDetector.SimpleOnGestureListener() {
+            override fun onSingleTapUp(e: MotionEvent): Boolean {
+                return true
+            }
+
+            override fun onLongPress(e: MotionEvent) {
+                val child = recyclerView.findChildViewUnder(e.x, e.y)
+                if (child != null && mListener != null) {
+                    mListener.onLongItemClick(child, recyclerView.getChildAdapterPosition(child))
+                }
+            }
+        })
+    }
+
+    override fun onInterceptTouchEvent(view: RecyclerView, e: MotionEvent): Boolean {
+        val childView = view.findChildViewUnder(e.x, e.y)
+        if (childView != null && mListener != null && mGestureDetector.onTouchEvent(e)) {
+            mListener.onItemClick(childView, view.getChildAdapterPosition(childView))
+            return true
+        }
+        return false
+    }
+
+    override fun onTouchEvent(view: RecyclerView, motionEvent: MotionEvent) {}
+
+    override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {}
+}
+
 class  ViewHolder(itemview  : View, _context: Context?): RecyclerView.ViewHolder(itemview){
 
     var _city :city? =  null
@@ -47,11 +102,11 @@ class  ViewHolder(itemview  : View, _context: Context?): RecyclerView.ViewHolder
         this.PlaceCity=itemview.findViewById(R.id.ConstraintCity)
     }
 
-    fun  display( pair :city) {
+    fun  display( pair :city  ) {
         _city = pair
         txtCity?.text=pair.nameCity
 
-        var custumLayout:CustomLayout = CustomLayout(PlaceCity,PlaceCity.resources)
+        var custumLayout = CustomLayout(PlaceCity,PlaceCity.resources)
 
         Picasso.with(this._Context).load(pair.uRLCity)
             .into(custumLayout)

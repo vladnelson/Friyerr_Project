@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_town.*
 
 
@@ -56,5 +57,10 @@ class TownFragment : Fragment() {
 
         listCity.layoutManager= LinearLayoutManager(context)
         listCity.adapter= CustomListview(this.activity,cityList,context)
+        //listCity.addOnItemTouchListener{
+           // RecyclerItemClickListener(this, listCity, RecyclerItemClickListener.OnItemClickListener})
+      //  }
+        //Toast.makeText(this.context,"Cliquer uc ",Toast.LENGTH_SHORT).show()
+
     }
 }
