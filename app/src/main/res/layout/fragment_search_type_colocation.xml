@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp" >
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:orientation="horizontal"
+                        android:layout_weight="2">
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_keyboard_arrow_left"
+                    android:id="@+id/ImgReturnForSearchTypecolocation"
+                    android:background="#FFF"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/What_Colocation_type"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorBlack"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"/>
+
+        </RelativeLayout>
+
+        <ProgressBar
+                android:id="@+id/progressBar2ForColocation"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="60dp"
+                android:paddingRight="60dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:progress="34" android:layout_weight="1"/>
+
+        <Button
+                android:id="@+id/BtnHouseForTypeColocation"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/bluebutton"
+                android:text="UNE MAISON"
+                style="@style/button_text"
+                android:layout_weight="3"
+                android:drawableEnd="@drawable/icon_arrow_right_white"
+                android:drawableRight="@drawable/icon_arrow_right_white"
+                android:paddingLeft="35dp"
+                android:paddingRight="35dp"
+                android:layout_marginBottom="30dp"/>
+
+        <Button
+                android:id="@+id/BtnAppartementForTypeColocation"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/bluebutton"
+                android:text="UN APPARTEMENT"
+                style="@style/button_text"
+                android:layout_marginTop="30dp"
+                android:layout_weight="3"
+                android:drawableEnd="@drawable/icon_arrow_right_white"
+                android:drawableRight="@drawable/icon_arrow_right_white"
+                android:paddingLeft="35dp"
+                android:paddingRight="35dp"/>
+    </LinearLayout>
+
+</LinearLayout>

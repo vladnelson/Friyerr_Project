@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Friyerr</string>
+    <string name="ForgotPassword">Forgot password ?</string>
+    <string name="title_activity_maps">Map</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="What_Are_Looking_For">QUE RECHERCHEZ-VOUS ?</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="What_location_type">QUEL TYPE DE LOGEMENT ?</string>
+    <string name="What_Colocation_type">QUEL TYPE DE COLOCATION ?</string>
+    <string name="Which_City">DANS QUELLE VILLE?</string>
+    <string name="un_logement">UN LOGEMENT</string>
+    <string name="une_colocation">UNE COLOCATION</string>
+</resources>
