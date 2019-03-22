@@ -5,6 +5,10 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+    <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swiperefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
     <!-- TODO: Update blank fragment layout -->
@@ -62,5 +66,5 @@
 
 
     </LinearLayout>
-
+    </android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>

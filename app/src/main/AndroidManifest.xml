@@ -18,7 +18,7 @@
             android:theme="@style/ThemePresentation">
 
         <activity
-                android:name=".PresentationActivity"
+                android:name=".view.ui.Activity.PresentationActivity"
                 android:noHistory="true"
                 android:screenOrientation="locked">
             <intent-filter>
@@ -44,22 +44,23 @@
                 android:name="com.google.android.geo.API_KEY"
                 android:value="@string/google_maps_key"/>
 
-        <activity android:name=".MainActivity"
+        <activity android:name=".view.ui.Activity.MainActivity"
                   android:screenOrientation="locked"
-                  android:theme="@style/MainTheme">
+                  android:theme="@style/MainTheme"
+                  android:windowSoftInputMode="adjustPan">
         </activity>
         <activity
-                android:name=".FriyerrLoginActivity"
+                android:name=".view.ui.Activity.FriyerrLoginActivity"
                 android:screenOrientation="locked"
                 android:theme="@style/ThemeAuth">
         </activity>
         <activity
-                android:name=".FriyerrRegisterActivity"
+                android:name=".view.ui.Activity.FriyerrRegisterActivity"
                 android:screenOrientation="locked"
                 android:theme="@style/ThemeAuth">
         </activity>
         <activity
-                android:name=".FriyerrForgotPasswordActivity"
+                android:name=".view.ui.Activity.FriyerrForgotPasswordActivity"
                 android:screenOrientation="locked"
                 android:theme="@style/ThemeAuth">
         </activity>

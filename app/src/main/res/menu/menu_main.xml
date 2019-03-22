@@ -1,11 +1,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:tools="http://schemas.android.com/tools"
-      tools:context=".MainActivity">
-    <item android:id="@+id/action_profile"
+      tools:context=".view.ui.Activity.MainActivity">
+    <item android:id="@+id/action_Search"
           android:icon="@drawable/ic_action_direction"
           android:title="Search"/>
 
     <item android:id="@+id/action_maps"
           android:title="Maps"
           android:icon="@drawable/ic_action_globe"/>
+    <item android:id="@+id/action_profile"
+          android:title="Account"
+          android:icon="@drawable/ic_person"/>
 </menu>

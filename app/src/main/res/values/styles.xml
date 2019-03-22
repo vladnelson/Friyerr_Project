@@ -47,4 +47,6 @@
         </item>
         <item name="android:background">#FBFAFF</item>
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="Theme.AppCompat.Light.NoActionBar" />
 </resources>

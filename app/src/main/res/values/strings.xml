@@ -14,4 +14,7 @@
     <string name="Which_City">DANS QUELLE VILLE?</string>
     <string name="un_logement">UN LOGEMENT</string>
     <string name="une_colocation">UNE COLOCATION</string>
+    <string name="WhatPrice">A QUEL PRIX ?</string>
+    <string name="WhatPeriod">POUR QUELLE PERIODE ?</string>
+    <string name="WhatMinRecommandationRate">MINIMAL RECOMMANDATION RATE ?</string>
 </resources>
