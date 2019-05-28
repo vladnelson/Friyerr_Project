@@ -54,14 +54,33 @@
             android:layout_weight="4"
             android:paddingLeft="20dp"
             android:paddingRight="20dp">
-        <Button
+        <LinearLayout
                 android:id="@+id/BtnInLoginForLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:background="@drawable/bluebutton"
-                android:text="LOGIN"
-                style="@style/button_text"
-                android:layout_marginBottom="10dp"/>
+                android:gravity="center"
+                android:layout_margin="10dp">
+            <TextView
+                    android:id="@+id/TxtInLoginForLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LOGIN"
+                    style="@style/button_text"
+                    android:background="#00000000"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"/>
+            <ProgressBar
+                    android:id="@+id/ProgressbarLoginForLogin"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:padding="1dp"
+                    android:background="#00000000"
+                    android:progressDrawable="@drawable/progressbarcirculairebtn"
+                    android:visibility="visible"
+                    android:indeterminateTint="@color/colorWhite"/>
+        </LinearLayout>
         <TextView
                 android:id="@+id/txtVInLoginForForgotPassword"
                 android:layout_width="match_parent"
@@ -74,17 +93,42 @@
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="10dp"
                 android:textStyle="italic"/>
-        <Button
+        <LinearLayout
                 android:id="@+id/BtnInLoginForLoginFacebook"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/blue_facebook_button"
-                android:drawableEnd="@drawable/icon_arrow_right_white"
-                android:drawableRight="@drawable/icon_arrow_right_white"
-                android:text="SIGN IN WITH FACEBOOK"
-                style="@style/button_text"
-                android:paddingLeft="35dp"
-                android:paddingRight="35dp"/>
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:background="@drawable/blue_facebook_button">
+            <com.facebook.login.widget.LoginButton
+                    android:id="@+id/Login_buttonFacebook"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp"/>
+
+            <TextView
+                    android:id="@+id/TxtInFacebookForLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SIGN IN WITH FACEBOOK"
+                    style="@style/button_text"
+                    android:drawableEnd="@drawable/icon_arrow_right_white"
+                    android:drawableRight="@drawable/icon_arrow_right_white"
+                    android:background="#00000000"/>
+
+            <ProgressBar
+                    android:id="@+id/ProgressbarFacebooForLogin"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:padding="1dp"
+                    android:background="#00000000"
+                    android:progressDrawable="@drawable/progressbarcirculairebtn"
+                    android:visibility="visible"
+                    android:indeterminateTint="@color/colorWhite"/>
+
+        </LinearLayout>
     </LinearLayout>
     <LinearLayout
             android:layout_width="match_parent"

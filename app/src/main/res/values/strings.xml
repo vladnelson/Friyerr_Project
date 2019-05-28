@@ -17,4 +17,7 @@
     <string name="WhatPrice">A QUEL PRIX ?</string>
     <string name="WhatPeriod">POUR QUELLE PERIODE ?</string>
     <string name="WhatMinRecommandationRate">MINIMAL RECOMMANDATION RATE ?</string>
+    <string name="facebook_app_id">765142920517604</string>
+    <string name="fb_login_protocol_scheme">fb765142920517604</string>
+
 </resources>
