@@ -8,8 +8,10 @@ import android.support.v7.app.AppCompatActivity
 import com.example.friyerr_mobile.R
 import kotlinx.android.synthetic.main.activity_login.*
 import android.graphics.Paint
+import android.opengl.Visibility
 import android.support.design.widget.Snackbar
 import android.util.Log
+import android.view.View
 import android.widget.*
 import com.example.friyerr_mobile.service.RequestApi.PostRequestLogin
 import com.example.friyerr_mobile.service.RequestApi.PostRequestLoginFacebook
@@ -67,9 +69,12 @@ class FriyerrLoginActivity : AppCompatActivity() {
             var passwordString = EitInLoginForPassword.text.toString()
 
             if (loginString.trim() == "" || passwordString.trim() == "") {
-                Toast.makeText(applicationContext, "VERIFIER VOS CHAMPS , SVP", Snackbar.LENGTH_LONG).show()
+                TxtInLoginForError.text = "Your email or your password is not valid. Retry again please."
+                TxtInLoginForError.visibility = View.VISIBLE
+                // Toast.makeText(applicationContext, "VERIFIER VOS CHAMPS , SVP", Snackbar.LENGTH_LONG).show()
                 BtnInLoginForLogin.isClickable = true
             } else {
+                TxtInLoginForError.visibility = View.INVISIBLE
                 var LoginInformation = LoginVM(loginString, passwordString)
                 //---------------------------------------------------
                 // Entrer les valeurs en JSON
