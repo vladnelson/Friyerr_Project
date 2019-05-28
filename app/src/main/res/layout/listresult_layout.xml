@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="8dp">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                    android:id="@+id/ImgResultForResultSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"/>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="?android:selectableItemBackground"
+                    android:padding="20dp">
+                <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:stretchColumns="1">
+                    <TableRow>
+                        <TextView
+                                android:id="@+id/TxtNameResultForResultSearch"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left"
+                                android:gravity="left"
+                                android:layout_column="1"
+                                android:text="Flat 22m2, colocation" android:textSize="24sp"
+                                android:textColor="@color/colorBlack"
+                                android:textAlignment="center"/>
+                    <ImageButton
+                            android:id="@+id/ImgBtnLikeForResultSearch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:foregroundGravity="right" android:background=" #FFF"/>
+                    </TableRow>
+                </TableLayout>
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                    <RatingBar
+                            android:id="@+id/RtbRatingSearchForResultSearch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent" android:numStars="5" android:rating="2"
+                            android:stepSize="1" style="@style/Widget.AppCompat.RatingBar.Small"
+                            android:layout_marginRight="5dp"/>
+                    <TextView
+                            android:id="@+id/TxtRateAndVilleViewForResultSearch"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="4.2/5.0 - 18EME,PARIS" android:textSize="14sp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

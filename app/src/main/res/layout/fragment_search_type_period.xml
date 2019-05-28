@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="25dp">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="vertical"
+                      android:layout_height="0dp"
+                      android:layout_weight="2">
+            <RelativeLayout android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="5dp">
+
+                <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_keyboard_arrow_left"
+                        android:background="#FFF"
+                        android:layout_alignParentLeft="true"
+                        android:id="@+id/ImgReturnForSearchPeriode"/>
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/WhatPeriod"
+                        android:gravity="center_horizontal"
+                        android:textSize="24sp"
+                        android:textColor="@color/colorBlack"
+                        android:layout_centerHorizontal="true"/>
+            </RelativeLayout>
+
+            <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="50dp"
+                    android:progress="80"/>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="4"
+                android:padding="20dp">
+
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:text="DU :"
+                      android:textColor="@color/colorBlack"
+                      android:paddingBottom="5dp" android:textSize="24sp"/>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            <TextView android:layout_width="0dp"
+                      android:layout_height="wrap_content"
+                      android:drawableLeft="@drawable/ic_date_range_primary_24dp"
+                      android:drawableStart="@drawable/ic_date_range_primary_24dp"
+                      android:drawablePadding="10dp"
+                      android:textColor="@color/colorBlack"
+                      android:background="@drawable/edittextdatestle"
+                      android:paddingTop="10dp"
+                      android:paddingBottom="10dp"
+                      android:paddingLeft="5dp"
+                      android:text="17 Janvier"
+                      android:id="@+id/EditStartForSearchTypePeriod"
+                      app:layout_constraintEnd_toStartOf="@+id/TxtYearStarForSearchTypePeriod"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintBottom_toBottomOf="parent"
+                      app:layout_constraintTop_toTopOf="parent" android:textSize="18sp"/>
+                <TextView
+                        android:id="@+id/TxtYearStarForSearchTypePeriod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:textColor="@color/colorBlack"
+                        android:background="@drawable/edittextdatestle"
+                        android:text="2019"
+                        android:padding="10dp"
+                        app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/EditStartForSearchTypePeriod" android:textSize="18sp"/>
+        </android.support.constraint.ConstraintLayout>
+
+
+
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:text="AU :"
+                      android:paddingBottom="5dp"
+                      android:paddingTop="15dp" android:textSize="24sp"
+                      android:textColor="@color/colorBlack"/>
+
+
+            <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <TextView android:layout_width="0dp"
+                          android:layout_height="wrap_content"
+                          android:drawableLeft="@drawable/ic_date_range_primary_24dp"
+                          android:drawableStart="@drawable/ic_date_range_primary_24dp"
+                          android:drawablePadding="10dp"
+                          android:textColor="@color/colorBlack"
+                          android:background="@drawable/edittextdatestle"
+                          android:paddingTop="10dp"
+                          android:paddingBottom="10dp"
+                          android:paddingLeft="5dp"
+                          android:text="17 Janvier"
+                          android:id="@+id/EditEndForSearchTypePeriod"
+                          app:layout_constraintEnd_toStartOf="@+id/TxtYearEndForSearchTypePeriod"
+                          app:layout_constraintStart_toStartOf="parent"
+                          app:layout_constraintBottom_toBottomOf="parent"
+                          app:layout_constraintTop_toTopOf="parent" android:textSize="18sp"/>
+                <TextView
+                        android:id="@+id/TxtYearEndForSearchTypePeriod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:background="@drawable/edittextdatestle"
+                        android:padding="10dp"
+                        android:text="2019"
+                        app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/EditEndForSearchTypePeriod" android:textSize="18sp"
+                        android:textColor="@color/colorBlack"/>
+            </android.support.constraint.ConstraintLayout>
+
+
+        </LinearLayout>
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp">
+            <Button
+                    android:id="@+id/BtnNextForSearchPeriod"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bluebutton"
+                    android:text="SUIVANT"
+                    style="@style/button_text"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:drawableEnd="@drawable/icon_arrow_right_white"
+                    android:drawableRight="@drawable/icon_arrow_right_white"
+                    android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

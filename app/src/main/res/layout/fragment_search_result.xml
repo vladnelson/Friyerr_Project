@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/RefreshPage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="25dp">
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:orientation="vertical"
+                          android:layout_height="0dp"
+                          android:layout_weight="1">
+                <RelativeLayout android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="5dp">
+
+                    <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_keyboard_arrow_left"
+                            android:background="#FFF"
+                            android:layout_alignParentLeft="true"
+                            android:id="@+id/ImgReturnForSearchResult"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="RETOUR"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorBlack"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignRight="@id/ImgReturnForSearchResult"
+                            android:layout_alignParentEnd="true"
+                            android:layout_toEndOf="@+id/ImgReturnForSearchResult"
+                           android:layout_alignParentBottom="true"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="0dp"
+                      android:layout_weight="8" >
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/ListResultSearch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"/>
+        </LinearLayout>
+        </LinearLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

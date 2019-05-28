@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/linearLayout">
+        <RelativeLayout
+                android:id="@+id/PlaceProfile"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp">
+            <RelativeLayout
+                    android:id="@+id/PlaceImgProfile"
+                    android:layout_width="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_height="match_parent">
+                <ImageView
+                        android:id="@+id/ImgProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:src="@drawable/ic_launcher_foreground"
+                        android:background="@drawable/profilestyle"/>
+                <TextView
+                        android:id="@+id/badge_notification_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/ImgProfile"
+                        android:layout_alignBottom="@id/ImgProfile"
+                        android:background="@drawable/item_count"
+                        android:text="21"
+                        android:textColor="#FFF"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+            </RelativeLayout>
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/PlaceImgProfile"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="25dp"
+                    android:orientation="vertical">
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Emily Daniels" android:textSize="24sp"
+                        android:paddingEnd="5dp"
+                        android:textColor="@android:color/black"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PARIS,FRANCE" android:textSize="12sp"
+                        android:paddingEnd="5dp"
+                        android:textColor="@android:color/darker_gray"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="EMILY_DANIELS" android:textSize="12sp"
+                        android:paddingEnd="5dp"
+                        android:textColor="@android:color/darker_gray"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <android.support.design.widget.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <android.support.v4.view.ViewPager
+            android:id="@+id/containterFavorite"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"/>
+</android.support.constraint.ConstraintLayout>
