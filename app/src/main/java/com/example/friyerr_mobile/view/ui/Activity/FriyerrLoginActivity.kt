@@ -187,8 +187,8 @@ class FriyerrLoginActivity : AppCompatActivity() {
 
         var AccountToken: String? = sharedPreference.getString(PresentationActivity.PreferenceToken, null)
 
-        //  Log.d(TAG, "RCode= " + requestCode + " ,  resultCode= " + resultCode)
-        // Log.d(TAG, AccountToken)
+        Log.d(TAG, "RCode= " + requestCode + " ,  resultCode= " + resultCode)
+        Log.d(TAG, AccountToken)
 
 
         if (AccountToken != null) {
