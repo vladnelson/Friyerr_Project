@@ -78,6 +78,8 @@ internal class PostRequestLoginFacebook(val Context: Activity) : AsyncTask<Strin
             //---------------------------------------------------
             try {
 
+                Log.d(FriyerrLoginActivity.TAG,conn.responseCode.toString())
+                Log.d(FriyerrLoginActivity.TAG,conn.responseMessage)
                 val br = BufferedReader(
                     InputStreamReader(
                         conn.inputStream, "UTF-8"

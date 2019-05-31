@@ -22,6 +22,8 @@ import org.json.JSONObject
 import kotlin.math.log
 
 
+
+
 class FriyerrLoginActivity : AppCompatActivity() {
 
     companion object {
@@ -43,7 +45,7 @@ class FriyerrLoginActivity : AppCompatActivity() {
 
         var AccountEmail: String? = sharedPreference.getString(PresentationActivity.PreferenceLastUser, null)
 
-        Log.d(TAG, AccountEmail)
+        //Log.d(TAG, AccountEmail)
         if (AccountEmail != null) {
             EitInLoginForEmail.setText(AccountEmail)
             EitInLoginForPassword.requestFocus()
@@ -110,35 +112,80 @@ class FriyerrLoginActivity : AppCompatActivity() {
 
         Login_buttonFacebook.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onSuccess(loginResult: LoginResult) {
-                //---------------------------------------------------
-                // Entrer les valeurs en JSON
-                //---------------------------------------------------
-                val LoginFacebookInformationJson = JSONObject()
-                LoginFacebookInformationJson.put("userid", loginResult.accessToken.userId)
-                LoginFacebookInformationJson.put("token", loginResult.accessToken.token.toString())
-                LoginFacebookInformationJson.put("username", "")
-                LoginFacebookInformationJson.put("firstname", "")
-                LoginFacebookInformationJson.put("lastname", "")
+
+                var first_name =""
+                var last_name = ""
+                var email = ""
+
+                val request = GraphRequest.newMeRequest(loginResult.accessToken) { `object`, response ->
+                    try {
+                        //here is the data that you want
+                        // Log.d(FriyerrLoginActivity.TAG,`object`.toString() )
+                        Log.d("FBLOGIN_JSON_RES", `object`.toString())
+
+                        if (`object`.has("id")) {
+
+                            first_name=`object`.getString("first_name")
+                            last_name=`object`.getString("last_name")
+                            email=`object`.getString("email")
+
+                            Log.e("FBLOGIN_JSON_RES", first_name)
+                            Log.e("FBLOGIN_JSON_RES", email)
+                            Log.e("FBLOGIN_JSON_RES", last_name)
+                            //handleSignInResultFacebook(`object`)
+                            Log.e("FBLOGIN_JSON_RES", `object`.toString())
+
+                            //---------------------------------------------------
+                            // Entrer les valeurs en JSON
+                            //---------------------------------------------------
+                            val LoginFacebookInformationJson = JSONObject()
+                            LoginFacebookInformationJson.put("userid", loginResult.accessToken.userId)
+                            LoginFacebookInformationJson.put("token", loginResult.accessToken.token)
+                            LoginFacebookInformationJson.put("username", email)
+                            LoginFacebookInformationJson.put("firstname", last_name)
+                            LoginFacebookInformationJson.put("lastname", first_name)
 
 
-                Log.d("FBLOGIN", loginResult.accessToken.token.toString())
-                //   Log.d("FBLOGIN", loginResult.accessToken.userId)
+                            Log.d("FBLOGIN", loginResult.accessToken.token.toString())
+                            //   Log.d("FBLOGIN", loginResult.accessToken.userId)
 
-                //   Log.d("FBLOGIN", loginResult.recentlyDeniedPermissions.toString())
-                //  Log.d("FBLOGIN", loginResult.recentlyGrantedPermissions.toString())
+                            //   Log.d("FBLOGIN", loginResult.recentlyDeniedPermissions.toString())
+                            //  Log.d("FBLOGIN", loginResult.recentlyGrantedPermissions.toString())
 
-                /* Log.d("FBLOGIN", loginResult.accessToken.applicationId)
-                 Log.d("FBLOGIN", loginResult.accessToken.dataAccessExpirationTime.toString())
-                 Log.d("FBLOGIN", loginResult.accessToken.permissions.toString())
-                 Log.d("FBLOGIN", loginResult.accessToken.expires.toString())
-                 Log.d("FBLOGIN", loginResult.accessToken.lastRefresh.toString())
-                 Log.d("FBLOGIN", loginResult.accessToken.source.name)
- */
-                Log.d(TAG, "envoie request")
-                PostRequestLoginFacebook(activity).execute(
-                    LoginFacebookInformationJson.toString(),
-                    Context.MODE_PRIVATE.toString()
-                )
+                            /* Log.d("FBLOGIN", loginResult.accessToken.applicationId)
+                             Log.d("FBLOGIN", loginResult.accessToken.dataAccessExpirationTime.toString())
+                             Log.d("FBLOGIN", loginResult.accessToken.permissions.toString())
+                             Log.d("FBLOGIN", loginResult.accessToken.expires.toString())
+                             Log.d("FBLOGIN", loginResult.accessToken.lastRefresh.toString())
+                             Log.d("FBLOGIN", loginResult.accessToken.source.name)
+             */
+                            Log.d(TAG, "envoie request")
+                            PostRequestLoginFacebook(activity).execute(
+                                LoginFacebookInformationJson.toString(),
+                                Context.MODE_PRIVATE.toString()
+                            )
+                        } else {
+                            Log.e("FBLOGIN_FAILD", `object`.toString())
+                        }
+
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                        //dismissDialogLogin()
+                        Log.e("FBLOGIN_FAILD", e.message)
+                    }
+                }
+
+
+
+
+
+                val parameters = Bundle()
+                parameters.putString("fields", "name,email,first_name, last_name,id,picture.type(large)")
+                request.parameters = parameters
+                request.executeAsync()
+
+
+
 
 
                 /*  val request = GraphRequest.newMeRequest(loginResult.accessToken) { `object`, response ->
@@ -188,7 +235,7 @@ class FriyerrLoginActivity : AppCompatActivity() {
         var AccountToken: String? = sharedPreference.getString(PresentationActivity.PreferenceToken, null)
 
         Log.d(TAG, "RCode= " + requestCode + " ,  resultCode= " + resultCode)
-        Log.d(TAG, AccountToken)
+        // Log.d(TAG, AccountToken)
 
 
         if (AccountToken != null) {
