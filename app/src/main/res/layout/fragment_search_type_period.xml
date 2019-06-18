@@ -6,7 +6,7 @@
         android:orientation="vertical"
         android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" android:background="@color/colorWhite">
 
 
     <!-- TODO: Update blank fragment layout -->
@@ -57,7 +57,6 @@
         </LinearLayout>
 
 
-
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -73,26 +72,26 @@
                       android:paddingBottom="5dp" android:textSize="24sp"/>
 
             <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
 
-            <TextView android:layout_width="0dp"
-                      android:layout_height="wrap_content"
-                      android:drawableLeft="@drawable/ic_date_range_primary_24dp"
-                      android:drawableStart="@drawable/ic_date_range_primary_24dp"
-                      android:drawablePadding="10dp"
-                      android:textColor="@color/colorBlack"
-                      android:background="@drawable/edittextdatestle"
-                      android:paddingTop="10dp"
-                      android:paddingBottom="10dp"
-                      android:paddingLeft="5dp"
-                      android:text="17 Janvier"
-                      android:id="@+id/EditStartForSearchTypePeriod"
-                      app:layout_constraintEnd_toStartOf="@+id/TxtYearStarForSearchTypePeriod"
-                      app:layout_constraintStart_toStartOf="parent"
-                      app:layout_constraintBottom_toBottomOf="parent"
-                      app:layout_constraintTop_toTopOf="parent" android:textSize="18sp"/>
+                <TextView android:layout_width="0dp"
+                          android:layout_height="wrap_content"
+                          android:drawableLeft="@drawable/ic_date_range_primary_24dp"
+                          android:drawableStart="@drawable/ic_date_range_primary_24dp"
+                          android:drawablePadding="10dp"
+                          android:textColor="@color/colorBlack"
+                          android:background="@drawable/edittextdatestle"
+                          android:paddingTop="10dp"
+                          android:paddingBottom="10dp"
+                          android:paddingLeft="5dp"
+                          android:text="17 Janvier"
+                          android:id="@+id/EditStartForSearchTypePeriod"
+                          app:layout_constraintEnd_toStartOf="@+id/TxtYearStarForSearchTypePeriod"
+                          app:layout_constraintStart_toStartOf="parent"
+                          app:layout_constraintBottom_toBottomOf="parent"
+                          app:layout_constraintTop_toTopOf="parent" android:textSize="18sp"/>
                 <TextView
                         android:id="@+id/TxtYearStarForSearchTypePeriod"
                         android:layout_width="wrap_content"
@@ -104,8 +103,7 @@
                         app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/EditStartForSearchTypePeriod" android:textSize="18sp"/>
-        </android.support.constraint.ConstraintLayout>
-
+            </android.support.constraint.ConstraintLayout>
 
 
             <TextView android:layout_width="match_parent"

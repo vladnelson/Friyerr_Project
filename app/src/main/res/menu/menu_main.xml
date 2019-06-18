@@ -1,14 +1,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:tools="http://schemas.android.com/tools"
       tools:context=".view.ui.Activity.MainActivity">
+
     <item android:id="@+id/action_Search"
-          android:icon="@drawable/ic_action_direction"
+          android:icon="@drawable/ic_search"
           android:title="Search"/>
+
+    <item android:id="@+id/action_Favoris"
+          android:icon="@drawable/ic_favorite_border"
+          android:title="Favoris"/>
 
     <item android:id="@+id/action_maps"
           android:title="Maps"
           android:icon="@drawable/ic_action_globe"/>
+
+    <item android:id="@+id/action_messenger"
+          android:title="Messages"
+          android:icon="@drawable/ic_message"/>
+
     <item android:id="@+id/action_profile"
           android:title="Account"
-          android:icon="@drawable/ic_person"/>
+          android:icon="@drawable/ic_account_circle"/>
 </menu>

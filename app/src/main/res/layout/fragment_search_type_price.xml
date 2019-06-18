@@ -72,7 +72,7 @@
                     android:layout_height="wrap_content"
                     app:corner_radius="10"
                     app:min_value="0"
-                    app:max_value="5000"
+                    app:max_value="1000"
                     app:gap="20"
                     app:bar_color="#8990C4"
                     app:bar_highlight_color="@color/colorAccent"
@@ -100,7 +100,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:textColor="@color/colorBlack"
-                        android:text="5000 €"/>
+                        android:text="+ 1000 €"/>
 
             </RelativeLayout>
         </LinearLayout>

@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_height="match_parent"
         android:layout_width="match_parent">
 
     <LinearLayout
+            android:id="@+id/linearLayout"
             android:orientation="vertical"
             android:layout_width="0dp"
-            android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:id="@+id/linearLayout">
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
         <RelativeLayout
                 android:id="@+id/PlaceProfile"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="120dp"
                 android:paddingLeft="40dp"
                 android:paddingRight="40dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp">
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
             <RelativeLayout
                     android:id="@+id/PlaceImgProfile"
                     android:layout_width="wrap_content"
@@ -71,15 +74,178 @@
 
         </RelativeLayout>
 
-        <android.support.design.widget.TabLayout
-                android:id="@+id/tabs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
     </LinearLayout>
-    <android.support.v4.view.ViewPager
-            android:id="@+id/containterFavorite"
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="0dp" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"/>
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintBottom_toBottomOf="parent" android:background="#F2F2F2">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="#F2F2F2"
+                android:padding="10dp">
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="0dp"
+                          android:orientation="vertical"
+                          android:layout_weight="8">
+                <EditText
+                        android:id="@+id/EitInInformationForPseudo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Email address"
+                        android:padding="13dp"
+                        android:drawableLeft="@drawable/icon_email"
+                        android:drawableStart="@drawable/icon_email"
+                        android:drawablePadding="5dp"
+                        android:textColor="#000"
+                        android:background="#FFF"
+                        android:layout_centerVertical="true"
+                        android:inputType="textEmailAddress"
+                        android:layout_marginTop="7dp"/>
+                <EditText
+                        android:id="@+id/EitInRInformationProfilForName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Name"
+                        android:padding="13dp"
+                        android:drawableLeft="@drawable/icon_email"
+                        android:drawableStart="@drawable/icon_email"
+                        android:drawablePadding="5dp"
+                        android:textColor="#000"
+                        android:background="#FFF"
+                        android:layout_centerVertical="true"
+                        android:inputType="textEmailAddress"
+                        android:layout_marginTop="7dp"/>
+
+                <EditText
+                        android:id="@+id/EitInRInformationProfilForFirstName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Firstname"
+                        android:padding="13dp"
+                        android:drawableLeft="@drawable/icon_email"
+                        android:drawableStart="@drawable/icon_email"
+                        android:drawablePadding="5dp"
+                        android:textColor="#000"
+                        android:background="#FFF"
+                        android:layout_centerVertical="true"
+                        android:inputType="textEmailAddress"
+                        android:layout_marginTop="7dp"/>
+
+                <EditText
+                        android:id="@+id/EitInRInformationProfilForBirthday"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Birstday"
+                        android:padding="13dp"
+                        android:drawableLeft="@drawable/icon_email"
+                        android:drawableStart="@drawable/icon_email"
+                        android:drawablePadding="5dp"
+                        android:textColor="#000"
+                        android:background="#FFF"
+                        android:layout_centerVertical="true"
+                        android:inputType="textEmailAddress"
+                        android:layout_marginTop="7dp"/>
+
+                <EditText
+                        android:id="@+id/EitInRInformationProfilForPseudo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Pseudo"
+                        android:padding="13dp"
+                        android:drawableLeft="@drawable/icon_email"
+                        android:drawableStart="@drawable/icon_email"
+                        android:drawablePadding="5dp"
+                        android:textColor="#000"
+                        android:background="#FFF"
+                        android:layout_centerVertical="true"
+                        android:inputType="textEmailAddress"
+                        android:layout_marginTop="7dp"/>
+
+                <EditText
+                        android:id="@+id/EitInInformationProfilForPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Password"
+                        android:padding="13dp"
+                        android:drawablePadding="5dp"
+                        android:drawableLeft="@drawable/icon_lock"
+                        android:drawableStart="@drawable/icon_lock"
+                        android:textColor="#000"
+                        android:background="#FFF"
+                        android:layout_centerVertical="true"
+                        android:inputType="textPassword"
+                        android:layout_marginTop="7dp"/>
+
+
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="0dp"
+                          android:layout_weight="2"
+                          android:layout_gravity="bottom"
+                          android:orientation="vertical">
+                <LinearLayout
+                        android:id="@+id/BtnSaveInformationProfil"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="@drawable/pinkbutton"
+                        android:layout_marginBottom="10dp">
+                    <TextView
+                            android:id="@+id/txtSaveInformationProfil"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Save"
+                            android:textColor="#FFF"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:textSize="18sp"/>
+                    <ProgressBar
+                            android:id="@+id/ProgressbarSaveInformationProfil"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:padding="1dp"
+                            android:background="#00000000"
+                            android:progressDrawable="@drawable/progressbarcirculairebtn"
+                            android:visibility="visible"
+                            android:indeterminateTint="@color/colorWhite"/>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:id="@+id/BtnLogoutForInformation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="@drawable/pinkbutton">
+                    <TextView
+                            android:id="@+id/txtLogoutForInformation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sign out"
+                            android:textColor="#FFF"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:textSize="18sp"/>
+                    <ProgressBar
+                            android:id="@+id/ProgressbarLogoutForInformation"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:padding="1dp"
+                            android:background="#00000000"
+                            android:progressDrawable="@drawable/progressbarcirculairebtn"
+                            android:visibility="visible"
+                            android:indeterminateTint="@color/colorWhite"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

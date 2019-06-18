@@ -8,7 +8,7 @@
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" android:background="@color/colorWhite">
 
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="0dp" android:orientation="vertical"
@@ -46,34 +46,34 @@
 
     </LinearLayout>
 
-<RelativeLayout android:layout_width="match_parent"
-              android:layout_height="0dp"
-              android:layout_weight="4"
-              android:paddingTop="30dp">
-    <Button
-            android:id="@+id/BtnColocation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bluebutton"
-            android:text="@string/une_colocation"
-            style="@style/button_text"
-            android:drawableEnd="@drawable/icon_arrow_right_white"
-            android:drawableRight="@drawable/icon_arrow_right_white"
-            android:layout_alignParentTop="true"
-            android:padding="10dp"/>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="4"
+                    android:paddingTop="30dp">
+        <Button
+                android:id="@+id/BtnColocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bluebutton"
+                android:text="@string/une_colocation"
+                style="@style/button_text"
+                android:drawableEnd="@drawable/icon_arrow_right_white"
+                android:drawableRight="@drawable/icon_arrow_right_white"
+                android:layout_alignParentTop="true"
+                android:padding="10dp"/>
 
-    <Button
-            android:id="@+id/BtnLocation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bluebutton"
-            android:text="@string/un_logement"
-            style="@style/button_text"
-            android:drawableEnd="@drawable/icon_arrow_right_white"
-            android:drawableRight="@drawable/icon_arrow_right_white"
-            android:layout_centerInParent="true"
+        <Button
+                android:id="@+id/BtnLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bluebutton"
+                android:text="@string/un_logement"
+                style="@style/button_text"
+                android:drawableEnd="@drawable/icon_arrow_right_white"
+                android:drawableRight="@drawable/icon_arrow_right_white"
+                android:layout_centerInParent="true"
 
-            android:padding="10dp"/>
-</RelativeLayout>
+                android:padding="10dp"/>
+    </RelativeLayout>
 
 </LinearLayout>

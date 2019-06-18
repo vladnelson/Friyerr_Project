@@ -1,5 +1,6 @@
 package com.example.friyerr_mobile.view.ui.Activity
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
@@ -7,6 +8,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
 import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
 import com.example.friyerr_mobile.R
 import com.example.friyerr_mobile.view.ui.Fragment.MapsFragment
 import com.example.friyerr_mobile.view.ui.Fragment.ProfileFragment
@@ -27,6 +29,7 @@ class MainActivity : AppCompatActivity() {
 
 
         MenuBottom.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
         this.setSupportActionBar(MenuTop)
         supportActionBar?.setTitle("")
 
@@ -43,6 +46,7 @@ class MainActivity : AppCompatActivity() {
             .add(R.id.containter,SearchFragmentActitivy)
             .add(R.id.containter,ProfileFragmentActivity)
             .commit()
+
         MenuBottom.menu.findItem(R.id.action_maps).isChecked = true
        // setTabStateFragment(TabState.MAPS)
 
@@ -81,6 +85,8 @@ class MainActivity : AppCompatActivity() {
 
     internal enum class TabState {
         SEARCH,
+        FAVORIS,
+        MESSENGER,
         MAPS,
         PROFILE
     }
@@ -105,6 +111,7 @@ class MainActivity : AppCompatActivity() {
                 setTabStateFragment(TabState.PROFILE)
                 return@OnNavigationItemSelectedListener true
             }
+
         }
         false
     }
@@ -114,5 +121,15 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            R.id.action_settings ->{
+                startActivity(Intent(this, SettingsActivity::class.java))
+                return true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 
 }

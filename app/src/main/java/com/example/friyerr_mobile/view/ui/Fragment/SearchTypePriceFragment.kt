@@ -43,7 +43,13 @@ class SearchTypePriceFragment : Fragment() {
 
             override fun valueChanged(minValue: Number?, maxValue: Number?) {
                 TxtMinPrice.text = minValue.toString() + " €"
-                TxtMaxPrice.text = maxValue.toString() + " €"
+
+                if(Integer.parseInt(maxValue.toString())<1000){
+                    TxtMaxPrice.text = maxValue.toString() + " €"
+                }else{
+                    TxtMaxPrice.text = "+ 1000 €"
+                }
+
             }
 
         })
