@@ -5,7 +5,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent" android:background="@color/colorWhite">
-    <android.support.v4.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swiperefresh"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -55,16 +55,16 @@
             <LinearLayout android:layout_width="match_parent"
                           android:layout_height="0dp"
                           android:layout_weight="10">
-                <android.support.v7.widget.RecyclerView
+                <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/ListCity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:scrollbars="vertical">
 
-                </android.support.v7.widget.RecyclerView>
+                </androidx.recyclerview.widget.RecyclerView>
             </LinearLayout>
 
 
         </LinearLayout>
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </LinearLayout>

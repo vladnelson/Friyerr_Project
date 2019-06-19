@@ -9,11 +9,10 @@ import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import com.example.friyerr_mobile.R
-import com.example.friyerr_mobile.view.ui.Activity.FriyerrLoginActivity
-import com.example.friyerr_mobile.view.ui.Activity.MainActivity
-import com.example.friyerr_mobile.view.ui.Activity.PresentationActivity
+import com.example.friyerr_mobile.view.ui.activity.FriyerrLoginActivity
+import com.example.friyerr_mobile.view.ui.activity.MainActivity
+import com.example.friyerr_mobile.view.ui.activity.PresentationActivity
 import com.facebook.login.widget.LoginButton
-import kotlinx.android.synthetic.main.activity_login.view.*
 import java.io.BufferedReader
 import java.io.DataOutputStream
 import java.io.IOException

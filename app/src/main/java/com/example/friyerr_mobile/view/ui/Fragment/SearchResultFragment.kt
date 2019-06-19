@@ -2,15 +2,15 @@ package com.example.friyerr_mobile.view.ui.Fragment
 
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentTransaction
-import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.friyerr_mobile.view.adapter.ListAccomondationAdapter
 import com.example.friyerr_mobile.R
 import com.example.friyerr_mobile.service.`interface`.OnItemClickListenerList
@@ -24,6 +24,9 @@ class SearchResultFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
     companion object {
         val TAG: String = "SearchResult"
     }
+
+    private var mSwipeRefreshLayout:SwipeRefreshLayout?= null
+    private var mRecyclerView:RecyclerView?= null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,9 +48,9 @@ class SearchResultFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         //-----------------------------------------------------------------------------------------
         //  Initalisation du Refresh View
         //-----------------------------------------------------------------------------------------
-        var mSwipeRefreshLayout = rootView.findViewById<SwipeRefreshLayout>(R.id.RefreshPage)
-        mSwipeRefreshLayout.setOnRefreshListener(this)
-        mSwipeRefreshLayout.setColorSchemeResources(
+         mSwipeRefreshLayout = rootView.findViewById<SwipeRefreshLayout>(R.id.RefreshPage)
+        mSwipeRefreshLayout?.setOnRefreshListener(this)
+        mSwipeRefreshLayout?.setColorSchemeResources(
             R.color.colorPrimary,
             android.R.color.holo_green_dark,
             android.R.color.holo_orange_dark,
@@ -58,12 +61,12 @@ class SearchResultFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
     }
 
     override fun onRefresh() {
-        ChargeAccomondation(ListResultSearch)
-        RefreshPage.isRefreshing = false
+        ChargeAccomondation(mRecyclerView)
+        mSwipeRefreshLayout!!.isRefreshing = false
     }
 
 
-    private fun ChargeAccomondation(ListAccomondation: RecyclerView) {
+    private fun ChargeAccomondation(ListAccomondation: RecyclerView?) {
         var AccommodationList: ArrayList<Accommodation> = ArrayList<Accommodation>()
         AccommodationList.add(
             Flat(
@@ -126,8 +129,8 @@ class SearchResultFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
             )
         )
 
-        ListAccomondation.layoutManager = LinearLayoutManager(context)
-        ListAccomondation.adapter = ListAccomondationAdapter(
+        ListAccomondation?.layoutManager = LinearLayoutManager(context)
+        ListAccomondation?.adapter = ListAccomondationAdapter(
             this.activity,
             AccommodationList,
             context,

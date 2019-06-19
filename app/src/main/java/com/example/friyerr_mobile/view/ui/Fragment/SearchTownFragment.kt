@@ -1,15 +1,15 @@
 package com.example.friyerr_mobile.view.ui.Fragment
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentTransaction
-import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.friyerr_mobile.R
 import com.example.friyerr_mobile.service.`interface`.OnItemClickListenerList
 import com.example.friyerr_mobile.service.model.Town
@@ -23,6 +23,10 @@ class SearchTownFragment : Fragment() , SwipeRefreshLayout.OnRefreshListener {
         val TAG :String ="SearchTown"
     }
 
+    private var mRecyclerView :RecyclerView? = null
+    private var mSwipeRefreshLayout :SwipeRefreshLayout? = null
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,8 +35,8 @@ class SearchTownFragment : Fragment() , SwipeRefreshLayout.OnRefreshListener {
         var rootView = inflater.inflate(R.layout.fragment_town, container, false)
 
 
-        var mRecyclerView  =  rootView.findViewById<RecyclerView>(R.id.ListCity)
-        ChargeTown(mRecyclerView)
+         mRecyclerView  =  rootView.findViewById<RecyclerView>(R.id.ListCity)
+        ChargeTown(mRecyclerView!!)
         var mImgReturnForFragmenttown =  rootView.findViewById<ImageButton>(R.id.ImgReturnForFragmenttown)
         mImgReturnForFragmenttown.setOnClickListener{
             fragmentManager?.popBackStack()
@@ -40,9 +44,9 @@ class SearchTownFragment : Fragment() , SwipeRefreshLayout.OnRefreshListener {
 
 
 
-        var mSwipeRefreshLayout =  rootView.findViewById<SwipeRefreshLayout>(R.id.swiperefresh)
-        mSwipeRefreshLayout.setOnRefreshListener(this)
-        mSwipeRefreshLayout.setColorSchemeResources(
+         mSwipeRefreshLayout =  rootView.findViewById<SwipeRefreshLayout>(R.id.swiperefresh)
+        mSwipeRefreshLayout?.setOnRefreshListener(this)
+        mSwipeRefreshLayout?.setColorSchemeResources(
             R.color.colorPrimary,
             android.R.color.holo_green_dark,
             android.R.color.holo_orange_dark,
@@ -51,8 +55,8 @@ class SearchTownFragment : Fragment() , SwipeRefreshLayout.OnRefreshListener {
     }
 
     override fun onRefresh() {
-        ChargeTown(ListCity)
-        swiperefresh.isRefreshing=false
+        ChargeTown(mRecyclerView!!)
+        mSwipeRefreshLayout?.isRefreshing=false
     }
 
 

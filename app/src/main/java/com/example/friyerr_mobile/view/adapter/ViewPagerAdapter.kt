@@ -1,13 +1,14 @@
 package com.example.friyerr_mobile.view.adapter
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
+
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 import java.nio.file.Files.size
 
 
 
-class ViewPagerAdapter(fm : FragmentManager?) : FragmentPagerAdapter(fm) {
+class ViewPagerAdapter(fm : FragmentManager?) : FragmentPagerAdapter(fm!!) {
     private val mFragmentList = ArrayList<Fragment>()
     private val mFragmentTitleList = ArrayList<String>()
 

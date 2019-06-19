@@ -1,8 +1,9 @@
 package com.example.friyerr_mobile
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentStatePagerAdapter
+
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter
 
 public class SectionsStatePagerAdapter(val fn : FragmentManager) : FragmentStatePagerAdapter(fn){
 
@@ -15,7 +16,7 @@ public class SectionsStatePagerAdapter(val fn : FragmentManager) : FragmentState
         mFragmentListTitleList.add(title)
     }
 
-    override fun getItem(postion: Int): Fragment? {
+    override fun getItem(postion: Int): Fragment {
         return mFragmentList[postion]
     }
 

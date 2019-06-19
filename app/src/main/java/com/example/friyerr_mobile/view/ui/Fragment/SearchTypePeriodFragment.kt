@@ -4,13 +4,13 @@ import android.app.DatePickerDialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentTransaction
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.example.friyerr_mobile.R
 import kotlinx.android.synthetic.main.fragment_search_type_period.*
 import java.util.*
@@ -85,8 +85,10 @@ class SearchTypePeriodFragment : Fragment() {
         return rootView
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    /* override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
 
         BtnNextForSearchPeriod.setOnClickListener{
             val childFragment = SearchResultFragment()
@@ -138,7 +140,7 @@ class SearchTypePeriodFragment : Fragment() {
 
         }
 
-    }
+    }*/
 
 
 }

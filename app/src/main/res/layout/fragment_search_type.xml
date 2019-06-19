@@ -42,7 +42,7 @@
                 android:layout_margin="20dp"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
-                android:progress="17"/>
+                android:progress="0"/>
 
     </LinearLayout>
 

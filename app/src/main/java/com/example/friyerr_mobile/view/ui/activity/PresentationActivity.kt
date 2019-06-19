@@ -1,11 +1,11 @@
-package com.example.friyerr_mobile.view.ui.Activity
+package com.example.friyerr_mobile.view.ui.activity
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.example.friyerr_mobile.R
 import kotlinx.android.synthetic.main.activity_presentation.*
 import org.apache.commons.io.IOUtils
@@ -60,8 +60,10 @@ class PresentationActivity : AppCompatActivity() {
         try {
             var inputstream: InputStream = this.assets.open("friyerr_f.gif")
             var byte: ByteArray = IOUtils.toByteArray(inputstream)
+
             LogGif.setBytes(byte)
             LogGif.startAnimation()
+
         } catch (ex: IOException) {
             Log.e(TAG, "Erreur with Animation ")
         }

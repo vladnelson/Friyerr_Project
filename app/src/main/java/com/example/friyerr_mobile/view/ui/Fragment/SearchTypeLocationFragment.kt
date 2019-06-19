@@ -1,13 +1,13 @@
 package com.example.friyerr_mobile.view.ui.Fragment
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentTransaction
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.example.friyerr_mobile.R
 import kotlinx.android.synthetic.main.fragment_search_type_location.*
 

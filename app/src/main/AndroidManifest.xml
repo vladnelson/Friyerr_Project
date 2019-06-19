@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
           package="com.example.friyerr_mobile">
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -11,7 +12,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
-            android:replace="android:appComponentFactory"
+            tools:replace="android:appComponentFactory"
+            android:appComponentFactory="whateverString"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
@@ -20,7 +22,7 @@
             android:theme="@style/ThemePresentation">
 
         <activity
-                android:name=".view.ui.Activity.PresentationActivity"
+                android:name=".view.ui.activity.PresentationActivity"
                 android:noHistory="true"
                 android:screenOrientation="locked">
             <intent-filter>
@@ -66,35 +68,37 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".view.ui.Activity.MainActivity"
+                android:name=".view.ui.activity.MainActivity"
                 android:screenOrientation="locked"
                 android:theme="@style/MainTheme"
                 android:windowSoftInputMode="adjustPan">
         </activity>
         <activity
-                android:name=".view.ui.Activity.FriyerrLoginActivity"
+                android:name=".view.ui.activity.FriyerrLoginActivity"
                 android:screenOrientation="locked"
                 android:theme="@style/ThemeAuth">
         </activity>
         <activity
-                android:name=".view.ui.Activity.FriyerrRegisterActivity"
+                android:name=".view.ui.activity.FriyerrRegisterActivity"
                 android:screenOrientation="locked"
                 android:theme="@style/ThemeAuth">
         </activity>
         <activity
-                android:name=".view.ui.Activity.FriyerrForgotPasswordActivity"
+                android:name=".view.ui.activity.FriyerrForgotPasswordActivity"
                 android:screenOrientation="locked"
                 android:theme="@style/ThemeAuth">
         </activity>
 
         <activity
-                android:name=".view.ui.Activity.SettingsActivity"
+                android:name=".SettingsActivity"
                 android:screenOrientation="locked"
-                android:parentActivityName=".view.ui.Activity.MainActivity">
+                android:label="@string/title_activity_settings"
+                android:parentActivityName=".view.ui.activity.MainActivity">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
-                    android:value="com.example.friyerr_mobile.view.ui.Activity.MainActivity"/>
+                    android:value="com.example.friyerr_mobile.view.ui.activity.MainActivity"/>
         </activity>
+
     </application>
 
 </manifest>

@@ -1,29 +1,17 @@
-package com.example.friyerr_mobile.view.ui.Activity
+package com.example.friyerr_mobile.view.ui.activity
 
-import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
-import android.os.AsyncTask
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
-import android.transition.Visibility
-import android.transition.VisibilityPropagation
-import android.util.Log
-import android.view.View
-import android.view.ViewGroup
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import com.example.friyerr_mobile.R
 import com.example.friyerr_mobile.service.RequestApi.PostRequestRegister
 import com.example.friyerr_mobile.viewmodel.Account.Register
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_register.*
 import org.json.JSONObject
-import java.io.*
-import java.net.HttpURLConnection
-import java.net.URL
-import java.nio.charset.StandardCharsets
 
 
 class FriyerrRegisterActivity : AppCompatActivity() {

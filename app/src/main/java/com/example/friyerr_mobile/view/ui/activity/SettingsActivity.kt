@@ -1,9 +1,8 @@
-package com.example.friyerr_mobile.view.ui.Activity
+package com.example.friyerr_mobile
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.preference.PreferenceFragmentCompat
-import com.example.friyerr_mobile.R
+import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.PreferenceFragmentCompat
 
 
 class SettingsActivity : AppCompatActivity() {
@@ -15,7 +14,7 @@ class SettingsActivity : AppCompatActivity() {
             .beginTransaction()
             .replace(R.id.settings, SettingsFragment())
             .commit()
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        //supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
     }
 

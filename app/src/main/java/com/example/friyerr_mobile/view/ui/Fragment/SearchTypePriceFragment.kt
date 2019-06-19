@@ -1,13 +1,13 @@
 package com.example.friyerr_mobile.view.ui.Fragment
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentTransaction
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListener
 import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar

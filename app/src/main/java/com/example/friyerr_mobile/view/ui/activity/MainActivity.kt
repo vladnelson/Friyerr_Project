@@ -1,18 +1,20 @@
-package com.example.friyerr_mobile.view.ui.Activity
+package com.example.friyerr_mobile.view.ui.activity
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentTransaction
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.example.friyerr_mobile.R
+import com.example.friyerr_mobile.SettingsActivity
 import com.example.friyerr_mobile.view.ui.Fragment.MapsFragment
 import com.example.friyerr_mobile.view.ui.Fragment.ProfileFragment
 import com.example.friyerr_mobile.view.ui.Fragment.SearchFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -30,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         MenuBottom.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
-        this.setSupportActionBar(MenuTop)
+        setSupportActionBar(MenuTop)
         supportActionBar?.setTitle("")
 
         Log.d(TAG,"Affichage des menus")

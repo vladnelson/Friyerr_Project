@@ -2,16 +2,15 @@ package com.example.friyerr_mobile.view.ui.Fragment
 
 
 import android.os.Bundle
-import android.support.design.widget.TabLayout
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentTransaction
-import android.support.v4.view.ViewPager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
+import androidx.viewpager.widget.ViewPager
 import com.example.friyerr_mobile.R
 import com.example.friyerr_mobile.service.RequestApi.PostRequestLogout
 import com.example.friyerr_mobile.view.adapter.ViewPagerAdapter

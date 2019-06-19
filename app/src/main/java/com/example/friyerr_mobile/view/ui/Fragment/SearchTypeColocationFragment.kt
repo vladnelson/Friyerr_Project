@@ -1,14 +1,17 @@
 package com.example.friyerr_mobile.view.ui.Fragment
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentTransaction
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.LinearInterpolator
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.ProgressBar
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.example.friyerr_mobile.R
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_search_type_colocation.*
@@ -29,6 +32,12 @@ class SearchTypeColocationFragment : Fragment() {
         var btnHouseForTypeColocation =  rootView.findViewById<Button>(R.id.BtnHouseForTypeColocation)
         var btnFlatForTypeColocation =  rootView.findViewById<Button>(R.id.BtnAppartementForTypeColocation)
         var imgReturnForSearcheTypeColocation =rootView.findViewById<ImageButton>(R.id.ImgReturnForSearchTypecolocation)
+
+        var pgrLocation=  rootView.findViewById<ProgressBar>(R.id.progressBar3)
+        var obj : ObjectAnimator = ObjectAnimator.ofInt(pgrLocation,"progress",17,38)
+        obj.duration=500
+        obj.interpolator= LinearInterpolator()
+        obj.start()
 
         btnHouseForTypeColocation.setOnClickListener{
             val childFragment = SearchTownFragment()

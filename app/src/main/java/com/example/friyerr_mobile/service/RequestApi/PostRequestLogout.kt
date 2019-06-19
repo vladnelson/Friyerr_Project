@@ -9,8 +9,8 @@ import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import com.example.friyerr_mobile.R
-import com.example.friyerr_mobile.view.ui.Activity.FriyerrLoginActivity
-import com.example.friyerr_mobile.view.ui.Activity.PresentationActivity
+import com.example.friyerr_mobile.view.ui.activity.FriyerrLoginActivity
+import com.example.friyerr_mobile.view.ui.activity.PresentationActivity
 import com.example.friyerr_mobile.view.ui.Fragment.ProfileFragment
 import com.example.friyerr_mobile.viewmodel.Profil.TokenVM
 import com.facebook.login.LoginManager

@@ -1,11 +1,12 @@
 package com.example.friyerr_mobile.view.ui.Fragment
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.fragment.app.Fragment
 import com.example.friyerr_mobile.R
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
@@ -39,11 +40,14 @@ class MapsFragment :
     private lateinit var mSupportMapFragment: SupportMapFragment
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val view  = inflater.inflate(R.layout.activity_maps,container,false)
+
+
         Log.d(TAG,"Creation du fragment")
 
-        //val mapFragment = getFragmentManager()?.findFragmentById(R.id.map) as SupportMapFragment
+       // var mRecyclerView = mSupportMapFragment.(R.id.ListResultSearch)
+        //val mapFragment = fragmentManager?.findFragmentById(R.id.map) as SupportMapFragment
         // mapFragment.getMapAsync(this)
-        var mapFragment = map  as SupportMapFragment?
+        var mapFragment = map as SupportMapFragment?
 
         if(mapFragment!= null) {
             mapFragment.getMapAsync(this)

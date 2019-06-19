@@ -1,27 +1,21 @@
-package com.example.friyerr_mobile.view.ui.Activity
+package com.example.friyerr_mobile.view.ui.activity
 
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import com.example.friyerr_mobile.R
 import kotlinx.android.synthetic.main.activity_login.*
 import android.graphics.Paint
-import android.opengl.Visibility
-import android.support.design.widget.Snackbar
 import android.util.Log
 import android.view.View
-import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import com.example.friyerr_mobile.service.RequestApi.PostRequestLogin
 import com.example.friyerr_mobile.service.RequestApi.PostRequestLoginFacebook
 import com.example.friyerr_mobile.viewmodel.Account.LoginVM
 import com.facebook.*
 import com.facebook.login.LoginResult
 import org.json.JSONObject
-import kotlin.math.log
-
-
 
 
 class FriyerrLoginActivity : AppCompatActivity() {
