@@ -47,8 +47,7 @@ internal class PostRequestLogout(val Context: View, var ContextParent: Activity?
 
         var AccountToken: String? = sharedPreference.getString(PresentationActivity.PreferenceToken, null)
         var json = Gson()
-        var response = TokenVM()
-        response = json.fromJson(AccountToken, TokenVM::class.java)
+      var   response = json.fromJson(AccountToken, TokenVM::class.java)
 
         var conn: HttpURLConnection?
         conn =
@@ -116,6 +115,7 @@ internal class PostRequestLogout(val Context: View, var ContextParent: Activity?
 
 
         editor.remove(PresentationActivity.PreferenceToken)
+        editor.remove(PresentationActivity.PreferenceUser)
         editor.commit()
 
         ContextParent!!.startActivity(Intent(ContextParent, FriyerrLoginActivity::class.java))

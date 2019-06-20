@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import com.example.friyerr_mobile.R
+import com.example.friyerr_mobile.view.ui.Fragment.ProfileFragment
 import com.example.friyerr_mobile.view.ui.activity.FriyerrLoginActivity
 import com.example.friyerr_mobile.view.ui.activity.MainActivity
 import com.example.friyerr_mobile.view.ui.activity.PresentationActivity
@@ -86,7 +87,7 @@ internal class PostRequestLogin(val Context: Activity) : AsyncTask<String, Strin
 
                 val br = BufferedReader(
                     InputStreamReader(
-                        conn.inputStream, "UTF-8"
+                        conn.inputStream, PresentationActivity.UTF8
                     )
                 )
 
@@ -145,6 +146,7 @@ internal class PostRequestLogin(val Context: Activity) : AsyncTask<String, Strin
     override fun onPostExecute(result: Boolean) {
 
         if (result) {
+            GetRequestIdentity(Context, FriyerrLoginActivity.TAG).execute()
             Context.startActivity(Intent(Context, MainActivity::class.java))
             Context.finish()
         } else {

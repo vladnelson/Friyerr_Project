@@ -25,10 +25,12 @@ class PresentationActivity : AppCompatActivity() {
         val UrlApiRegister: String = "api/Account/Register"
         val UrlApiLogout: String = "api/Account/Logout"
         val UrlApiLoginFacebook : String = "api/Account/FacebookLogin"
+        var UrlApiIdentity : String = "api/Account/IdentityUser"
         //-------------------------------------------------------------------------------
         // Share Préférence
         //-------------------------------------------------------------------------------
         val PreferenceName: String = "ACCOUNT"
+        val PreferenceUser: String = "UserIdentity"
         val PreferenceToken: String = "TOJENJson"
         val PreferenceLastUser: String = "LastMailUser"
 
@@ -42,7 +44,11 @@ class PresentationActivity : AppCompatActivity() {
         //-------------------------------------------------------------------------------
         val MethodePOST = "POST"
         val MethodeGET = "GET"
+
+
+        val UTF8 = "UTF-8"
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)

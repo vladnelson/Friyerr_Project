@@ -1,31 +1,33 @@
 package com.example.friyerr_mobile.service.model
 
 class User ()  {
-    var firsname : String
-    var name : String
-    var civility: String
-    var zipCode : String
-    var pseudo : String
-    var picture_Url : String
-    var email :  String
-    var phoneNumber : String
-    var username : String
-    var accommodation : Accommodation?
-    var city: City?
+    var Firstname : String
+    var Name : String
+    var Civility: String
+    var ZipCode : String
+    var Pseudo : String
+    var Picture_Url : String
+    var Email :  String
+    var PhoneNumber : String
+    var UserName : String
+    var Accommodation : Accommodation?
+    var City: City?
+    var Id : String
 
 
     init {
-        this.firsname = ""
-        this.name=""
-        this.civility=""
-        this.zipCode=""
-        this.pseudo=""
-        this.picture_Url=""
-        this.email=""
-        this.phoneNumber=""
-        this.username=""
-        this.accommodation= null
-        this.city=null
+        this.Firstname = ""
+        this.Name=""
+        this.Civility=""
+        this.ZipCode=""
+        this.Pseudo=""
+        this.Picture_Url=""
+        this.Email=""
+        this.PhoneNumber=""
+        this.UserName=""
+        this.Accommodation= null
+        this.City=null
+        this.Id=""
 
 
     }
