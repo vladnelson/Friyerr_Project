@@ -11,9 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.friyerr_mobile.R
 import com.example.friyerr_mobile.SettingsActivity
-import com.example.friyerr_mobile.view.ui.Fragment.MapsFragment
-import com.example.friyerr_mobile.view.ui.Fragment.ProfileFragment
-import com.example.friyerr_mobile.view.ui.Fragment.SearchFragment
+import com.example.friyerr_mobile.view.ui.Fragment.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -23,7 +21,9 @@ class MainActivity : AppCompatActivity() {
 
     val MapsFragmentActivity  = MapsFragment()
     val SearchFragmentActitivy = SearchFragment()
-    val ProfileFragmentActivity= ProfileFragment()
+    val ProfileFragmentActivity = ProfileFragment()
+    val FavorisFragmentActivity = FavoriteSportsFragment()
+    val MessangerFragmentActivity = MessagerFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG,"Affichage des menus")
        // MenuTop.setNavigationIcon(R.drawable.ic_person_black_24dp)
       // MenuTop.setNavigationOnClickListener{
-//            Log.d(TAG,"Cliquer sur le profil"+MenuBottom.selectedItemId)
+//Log.d(TAG,"Cliquer sur le profil"+MenuBottom.selectedItemId)
 
         //}
 
@@ -47,6 +47,8 @@ class MainActivity : AppCompatActivity() {
             .add(R.id.containter,MapsFragmentActivity)
             .add(R.id.containter,SearchFragmentActitivy)
             .add(R.id.containter,ProfileFragmentActivity)
+            .add(R.id.containter,FavorisFragmentActivity)
+            .add(R.id.containter,MessangerFragmentActivity)
             .commit()
 
         MenuBottom.menu.findItem(R.id.action_maps).isChecked = true
@@ -64,6 +66,18 @@ class MainActivity : AppCompatActivity() {
                     transaction.show(SearchFragmentActitivy)
                     transaction.hide(MapsFragmentActivity)
                     transaction.hide(ProfileFragmentActivity)
+                    transaction.hide(FavorisFragmentActivity)
+                    transaction.hide(MessangerFragmentActivity)
+                }
+
+            }
+            TabState.FAVORIS -> {
+                run {
+                    transaction.show(FavorisFragmentActivity)
+                    transaction.hide(SearchFragmentActitivy)
+                    transaction.hide(ProfileFragmentActivity)
+                    transaction.hide(MapsFragmentActivity)
+                    transaction.hide(MessangerFragmentActivity)
                 }
 
             }
@@ -72,6 +86,9 @@ class MainActivity : AppCompatActivity() {
                     transaction.show(MapsFragmentActivity)
                     transaction.hide(SearchFragmentActitivy)
                     transaction.hide(ProfileFragmentActivity)
+                    transaction.hide(FavorisFragmentActivity)
+                    transaction.hide(MessangerFragmentActivity)
+
                 }
             }
             TabState.PROFILE ->{
@@ -79,6 +96,17 @@ class MainActivity : AppCompatActivity() {
                     transaction.show(ProfileFragmentActivity)
                     transaction.hide(SearchFragmentActitivy)
                     transaction.hide(MapsFragmentActivity)
+                    transaction.hide(FavorisFragmentActivity)
+                    transaction.hide(MessangerFragmentActivity)
+                }
+            }
+            TabState.MESSENGER ->{
+                run{
+                    transaction.show(MessangerFragmentActivity)
+                    transaction.hide(SearchFragmentActitivy)
+                    transaction.hide(MapsFragmentActivity)
+                    transaction.hide(FavorisFragmentActivity)
+                    transaction.hide(ProfileFragmentActivity)
                 }
             }
         }
@@ -111,6 +139,14 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.action_profile ->{
                 setTabStateFragment(TabState.PROFILE)
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.action_Favoris -> {
+                setTabStateFragment(TabState.FAVORIS)
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.action_messenger ->{
+                setTabStateFragment(TabState.MESSENGER)
                 return@OnNavigationItemSelectedListener true
             }
 

@@ -13,6 +13,7 @@ import com.example.friyerr_mobile.R
 import com.example.friyerr_mobile.view.ui.activity.FriyerrLoginActivity
 import com.example.friyerr_mobile.view.ui.activity.MainActivity
 import com.example.friyerr_mobile.view.ui.activity.PresentationActivity
+import kotlinx.android.synthetic.main.activity_login.*
 import java.io.BufferedReader
 import java.io.DataOutputStream
 import java.io.IOException
@@ -31,6 +32,7 @@ internal class PostRequestLogin(val Context: Activity) : AsyncTask<String, Strin
     val btn = Context.findViewById<LinearLayout>(R.id.BtnInLoginForLogin)
 
     val txtPassword = Context.findViewById<EditText>(R.id.EitInLoginForPassword)
+    val txtAlert = Context.findViewById<TextView>(R.id.TxtInLoginForError)
 
     //---------------------------------------------------
     //Avant l'envoie de la requete
@@ -154,6 +156,11 @@ internal class PostRequestLogin(val Context: Activity) : AsyncTask<String, Strin
             txtPassword.setText("")
             txtPassword.isFocusable = true
             btn.isClickable = true
+
+            txtAlert.text = "Your email or your password is not valid. Retry again please."
+            txtAlert.visibility = View.VISIBLE
+            // Toast.makeText(applicationContext, "VERIFIER VOS CHAMPS , SVP", Snackbar.LENGTH_LONG).show()
+            //BtnInLoginForLogin.isClickable = true
         }
     }
 

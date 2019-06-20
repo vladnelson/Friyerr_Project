@@ -1,7 +1,9 @@
 package com.example.friyerr_mobile.viewmodel.Profil
 
+import com.example.friyerr_mobile.service.model.User
 
-class TokenVM() {
+
+class TokenVM {
     var access_token: String
     var token_type: String
     var expires_in: Int
@@ -9,6 +11,7 @@ class TokenVM() {
     var issued: String
     var FacebookToken: String
     var userId: Int
+    var userConnected :  User
 
 
     init {
@@ -19,7 +22,9 @@ class TokenVM() {
         this.issued = ""
         this.FacebookToken = ""
         this.userId = 0
+        this.userConnected =  User()
     }
+
 
 
 }

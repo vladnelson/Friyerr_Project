@@ -5,7 +5,7 @@
               android:layout_height="match_parent"
               android:padding="15dp"
               tools:context=".view.ui.activity.FriyerrRegisterActivity"
-              android:orientation="vertical" android:background="@color/colorWhite">
+              android:orientation="vertical" android:background="@color/colorWhiteW">
 
     <ImageView
             android:id="@+id/ImgInRegisterForFriyerr"

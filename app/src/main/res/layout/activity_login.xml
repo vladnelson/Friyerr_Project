@@ -5,7 +5,7 @@
               android:layout_height="match_parent"
               android:padding="15dp"
               tools:context=".view.ui.activity.FriyerrLoginActivity" android:orientation="vertical"
-              android:background="@color/colorWhite">
+              android:background="@color/colorWhiteW">
     <ImageView
             android:id="@+id/ImgInLoginForFriyerr"
             android:layout_width="match_parent"

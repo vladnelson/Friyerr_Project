@@ -4,7 +4,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" android:background="@color/colorWhite">
+        android:layout_height="match_parent" android:background="@color/colorWhiteW">
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swiperefresh"
             android:layout_width="match_parent"
@@ -29,7 +29,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_keyboard_arrow_left"
-                            android:background="#FFF"
+                            android:background="@color/colorWhiteW"
                             android:layout_alignParentLeft="true"/>
                     <TextView
                             android:layout_width="match_parent"

@@ -7,7 +7,7 @@
         android:orientation="vertical"
         android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" android:background="@color/colorWhite">
+        android:layout_height="match_parent" android:background="@color/colorWhiteW">
 
 
     <!-- TODO: Update blank fragment layout -->
@@ -32,7 +32,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_keyboard_arrow_left"
-                        android:background="#FFF"
+                        android:background="@color/colorWhiteW"
                         android:layout_alignParentLeft="true"
                         android:id="@+id/ImgReturnForSearchPeriode"/>
                 <TextView
@@ -68,7 +68,7 @@
 
             <TextView android:layout_width="match_parent"
                       android:layout_height="wrap_content"
-                      android:text="DU :"
+                      android:text="Du :"
                       android:textColor="@color/colorBlack"
                       android:paddingBottom="5dp" android:textSize="24sp"/>
 
@@ -109,7 +109,7 @@
 
             <TextView android:layout_width="match_parent"
                       android:layout_height="wrap_content"
-                      android:text="AU :"
+                      android:text="Au :"
                       android:paddingBottom="5dp"
                       android:paddingTop="15dp" android:textSize="24sp"
                       android:textColor="@color/colorBlack"/>

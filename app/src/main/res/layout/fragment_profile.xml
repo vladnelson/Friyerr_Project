@@ -166,20 +166,7 @@
                         android:inputType="textEmailAddress"
                         android:layout_marginTop="7dp"/>
 
-                <EditText
-                        android:id="@+id/EitInInformationProfilForPassword"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Password"
-                        android:padding="13dp"
-                        android:drawablePadding="5dp"
-                        android:drawableLeft="@drawable/icon_lock"
-                        android:drawableStart="@drawable/icon_lock"
-                        android:textColor="#000"
-                        android:background="#FFF"
-                        android:layout_centerVertical="true"
-                        android:inputType="textPassword"
-                        android:layout_marginTop="7dp"/>
+
 
 
             </LinearLayout>
@@ -188,34 +175,7 @@
                           android:layout_weight="2"
                           android:layout_gravity="bottom"
                           android:orientation="vertical">
-                <LinearLayout
-                        android:id="@+id/BtnSaveInformationProfil"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="@drawable/pinkbutton"
-                        android:layout_marginBottom="10dp">
-                    <TextView
-                            android:id="@+id/txtSaveInformationProfil"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Save"
-                            android:textColor="#FFF"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:textSize="18sp"/>
-                    <ProgressBar
-                            android:id="@+id/ProgressbarSaveInformationProfil"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:padding="1dp"
-                            android:background="#00000000"
-                            android:progressDrawable="@drawable/progressbarcirculairebtn"
-                            android:visibility="visible"
-                            android:indeterminateTint="@color/colorWhite"/>
-                </LinearLayout>
+
 
                 <LinearLayout
                         android:id="@+id/BtnLogoutForInformation"
