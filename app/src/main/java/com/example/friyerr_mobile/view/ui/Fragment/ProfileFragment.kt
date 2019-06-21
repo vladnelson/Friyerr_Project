@@ -16,15 +16,14 @@ import com.example.friyerr_mobile.R
 import com.example.friyerr_mobile.service.RequestApi.GetRequestIdentity
 import com.example.friyerr_mobile.service.RequestApi.PostRequestLogout
 import com.example.friyerr_mobile.service.model.User
+import com.example.friyerr_mobile.view.adapter.CircleTransform
 import com.example.friyerr_mobile.view.adapter.ViewPagerAdapter
 import com.example.friyerr_mobile.view.ui.activity.PresentationActivity
 import com.example.friyerr_mobile.viewmodel.Profil.TokenVM
+import com.google.android.material.shape.RoundedCornerTreatment
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
-
-
-
-
+import com.squareup.picasso.Transformation
 
 
 class ProfileFragment : Fragment()  {
@@ -38,6 +37,9 @@ class ProfileFragment : Fragment()  {
     private var isImageFitToScren=true
 private  var ImageProfile :ImageView? = null
     private  var FullNameTxtProfile :TextView? = null
+    private  var PseudoTxtProfile :TextView? = null
+    private  var CityTxtProfile :TextView? = null
+    private  var NotificationTxtProfile : TextView? =  null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,8 +51,9 @@ private  var ImageProfile :ImageView? = null
       //  var tabLayout =  rootView.findViewById<TabLayout>(R.id.tabs)
          ImageProfile  =  rootView.findViewById<ImageView>(R.id.ImgProfile)
          FullNameTxtProfile  =  rootView.findViewById<TextView>(R.id.TxtFullNameProfile)
-
-
+        PseudoTxtProfile  =  rootView.findViewById<TextView>(R.id.TxtPseudoForProfile)
+        NotificationTxtProfile = rootView.findViewById<TextView>(R.id.badge_notification_Profile)
+        CityTxtProfile = rootView.findViewById<TextView>(R.id.TxtCityForProfile)
 
         GetRequestIdentity(this.activity!!, TAG).execute()
 
@@ -120,11 +123,19 @@ private  var ImageProfile :ImageView? = null
             var json = Gson()
             var   response = json.fromJson(UserIdentity, User::class.java)
 
+
+
             FullNameTxtProfile!!.text= response.Name+" "+response.Firstname
+            PseudoTxtProfile!!.text="@LOVE_LOVE"
+            NotificationTxtProfile!!.text=" 0 "
+            CityTxtProfile!!.text="LONDRES"+", "+"ANGLETERRE"
             Picasso.with(this.activity)
                 .load(response.Picture_Url)
+               .transform(CircleTransform())
                 //.load("https://heritagevillagecincinnati.org/wp-content/uploads/2017/12/icon.png")
                 .into(ImageProfile)
+
+
 
         }
 

@@ -2,6 +2,7 @@ package com.example.friyerr_mobile.view.ui.Fragment
 
 import android.animation.ObjectAnimator
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,10 +34,24 @@ class SearchTypeFragment : Fragment() {
         obj.interpolator=LinearInterpolator()
         obj.start()
 
+        var ssde = savedInstanceState?.getString("Statut")
+
+        if (ssde !=  null){
+            Log.d(TAG,ssde)
+        }
+
+
 
         btnColocation.setOnClickListener{
-            val childFragment = SearchTypeColocationFragment()
+
             val transaction = fragmentManager?.beginTransaction()
+
+            var data =  Bundle()
+            data.putString("Statut","Return")
+
+            var childFragment = SearchTypeColocationFragment()
+            childFragment.arguments=data
+
             transaction?.replace(R.id.containterSearch,childFragment,SearchTypeColocationFragment.TAG)
             transaction?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)?.addToBackStack(TAG)?.commit()
         }

@@ -2,6 +2,7 @@ package com.example.friyerr_mobile.view.ui.Fragment
 
 import android.animation.ObjectAnimator
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,6 +39,12 @@ class SearchTypeColocationFragment : Fragment() {
         obj.duration=500
         obj.interpolator= LinearInterpolator()
         obj.start()
+
+
+        var ssde = savedInstanceState?.getString("Statut")
+        if (ssde !=  null){
+            Log.d(TAG,ssde)
+        }
 
         btnHouseForTypeColocation.setOnClickListener{
             val childFragment = SearchTownFragment()
