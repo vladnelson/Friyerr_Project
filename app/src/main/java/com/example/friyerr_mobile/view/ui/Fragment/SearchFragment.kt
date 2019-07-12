@@ -11,10 +11,13 @@ import com.example.friyerr_mobile.R
 
 class SearchFragment : Fragment() {
 
-    private  var transaction : FragmentTransaction?  = null
+    private var transaction: FragmentTransaction? = null
+
     companion object {
-         val TAG :String ="SearchFragment"
+        val TAG: String = "SearchFragment"
+        var CompteurState = 5
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -23,7 +26,8 @@ class SearchFragment : Fragment() {
         var rootView = inflater.inflate(R.layout.fragment_search, container, false)
         val childFragment = SearchTypeFragment()
         transaction = childFragmentManager.beginTransaction()
-        transaction?.replace(R.id.containterSearch, childFragment,SearchTypeFragment.TAG)?.addToBackStack(null)?.commit()
+        transaction?.replace(R.id.containterSearch, childFragment, SearchTypeFragment.TAG)?.addToBackStack(null)
+            ?.commit()
         return rootView
     }
 }

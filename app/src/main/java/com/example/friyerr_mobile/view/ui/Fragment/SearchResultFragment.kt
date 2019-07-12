@@ -17,16 +17,18 @@ import com.example.friyerr_mobile.service.`interface`.OnItemClickListenerList
 import com.example.friyerr_mobile.service.model.Accommodation
 import com.example.friyerr_mobile.service.model.Flat
 import com.example.friyerr_mobile.service.model.House
+import com.example.friyerr_mobile.view.ui.activity.MainActivity
 import kotlinx.android.synthetic.main.fragment_search_result.*
 
 
 class SearchResultFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
     companion object {
         val TAG: String = "SearchResult"
+        var progress = 100
     }
 
-    private var mSwipeRefreshLayout:SwipeRefreshLayout?= null
-    private var mRecyclerView:RecyclerView?= null
+    private var mSwipeRefreshLayout: SwipeRefreshLayout? = null
+    private var mRecyclerView: RecyclerView? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,7 +50,7 @@ class SearchResultFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         //-----------------------------------------------------------------------------------------
         //  Initalisation du Refresh View
         //-----------------------------------------------------------------------------------------
-         mSwipeRefreshLayout = rootView.findViewById<SwipeRefreshLayout>(R.id.RefreshPage)
+        mSwipeRefreshLayout = rootView.findViewById<SwipeRefreshLayout>(R.id.RefreshPage)
         mSwipeRefreshLayout?.setOnRefreshListener(this)
         mSwipeRefreshLayout?.setColorSchemeResources(
             R.color.colorPrimary,
@@ -56,6 +58,8 @@ class SearchResultFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
             android.R.color.holo_orange_dark,
             android.R.color.holo_blue_dark
         )
+
+        MainActivity.CompteurStateOld=progress
 
         return rootView
     }
@@ -130,6 +134,7 @@ class SearchResultFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         )
 
         ListAccomondation?.layoutManager = LinearLayoutManager(context)
+
         ListAccomondation?.adapter = ListAccomondationAdapter(
             this.activity,
             AccommodationList,

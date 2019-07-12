@@ -4,10 +4,15 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context=".view.ui.Fragment.FavoriteSportsFragment" android:background="@color/colorWhite">
-
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/SRLFavoriteSpot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/ListAccomondationFovorite"
             android:scrollbars="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </FrameLayout>

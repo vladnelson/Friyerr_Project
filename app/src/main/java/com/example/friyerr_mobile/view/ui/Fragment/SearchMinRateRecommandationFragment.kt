@@ -14,7 +14,8 @@ import kotlinx.android.synthetic.main.fragment_search_min_rate_recommandation.*
 
 class SearchMinRateRecommandation : Fragment() {
     companion object {
-        val TAG :String ="SearchMinRateRecommondatio"
+        val TAG :String ="SearchMinRateRecommondation"
+
     }
 
     override fun onCreateView(

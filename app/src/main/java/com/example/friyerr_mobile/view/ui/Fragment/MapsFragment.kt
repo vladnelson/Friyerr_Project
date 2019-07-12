@@ -20,8 +20,12 @@ class MapsFragment :
 
     private lateinit var mMap: GoogleMap
     private lateinit var mMapView: MapView
-    val TAG ="MapsActitivy"
+
     val ZOOM_LEVEL = 16f
+
+    companion object {
+        val TAG: String = "MapsActitivy"
+    }
 
     /*
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,18 +42,19 @@ class MapsFragment :
     }
 */
     private lateinit var mSupportMapFragment: SupportMapFragment
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val view  = inflater.inflate(R.layout.activity_maps,container,false)
+        val view = inflater.inflate(R.layout.activity_maps, container, false)
 
 
-        Log.d(TAG,"Creation du fragment")
+        Log.d(TAG, "Creation du fragment")
 
-       // var mRecyclerView = mSupportMapFragment.(R.id.ListResultSearch)
+        // var mRecyclerView = mSupportMapFragment.(R.id.ListResultSearch)
         //val mapFragment = fragmentManager?.findFragmentById(R.id.map) as SupportMapFragment
         // mapFragment.getMapAsync(this)
         var mapFragment = map as SupportMapFragment?
 
-        if(mapFragment!= null) {
+        if (mapFragment != null) {
             mapFragment.getMapAsync(this)
         }
         return view
@@ -71,8 +76,9 @@ class MapsFragment :
         val sydney = LatLng(48.967232, 2.3619887)
         mMap.addMarker(
             MarkerOptions().position(sydney).title("Home")
-            .snippet("Facebook HQ : Menlo Park")
-            .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_localisation_now)))
+                .snippet("Facebook HQ : Menlo Park")
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_localisation_now))
+        )
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
 
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, ZOOM_LEVEL))

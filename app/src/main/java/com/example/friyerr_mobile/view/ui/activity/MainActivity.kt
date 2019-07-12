@@ -1,10 +1,13 @@
 package com.example.friyerr_mobile.view.ui.activity
 
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.animation.LinearInterpolator
+import android.widget.ProgressBar
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -17,9 +20,33 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val TAG = "MainActivity"
 
-    val MapsFragmentActivity  = MapsFragment()
+    companion object {
+        val TAG = "MainActivity"
+        var CompteurStateOld = 0
+
+
+        fun ChangeProgreeAnim(PbAnim: ProgressBar, ProgresStop: Int , PropertyN : String) {
+
+            Log.d(TAG,"On va progress de " + CompteurStateOld +"  à " + ProgresStop)
+           // if (CompteurStateOld > ProgresStop) {
+                var obj: ObjectAnimator = ObjectAnimator.ofInt(
+                    PbAnim,
+                    PropertyN,
+                    CompteurStateOld,
+                    ProgresStop
+
+                )
+                obj.duration = 500
+                obj.interpolator = LinearInterpolator()
+                obj.start()
+
+
+        }
+    }
+
+
+    val MapsFragmentActivity = MapsFragment()
     val SearchFragmentActitivy = SearchFragment()
     val ProfileFragmentActivity = ProfileFragment()
     val FavorisFragmentActivity = FavoriteSportsFragment()
@@ -35,30 +62,30 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(MenuTop)
         supportActionBar?.setTitle("")
 
-        Log.d(TAG,"Affichage des menus")
-       // MenuTop.setNavigationIcon(R.drawable.ic_person_black_24dp)
-      // MenuTop.setNavigationOnClickListener{
+        Log.d(TAG, "Affichage des menus")
+        // MenuTop.setNavigationIcon(R.drawable.ic_person_black_24dp)
+        // MenuTop.setNavigationOnClickListener{
 //Log.d(TAG,"Cliquer sur le profil"+MenuBottom.selectedItemId)
 
         //}
 
         setTabStateFragment(TabState.MAPS)
         supportFragmentManager.beginTransaction()
-            .add(R.id.containter,MapsFragmentActivity)
-            .add(R.id.containter,SearchFragmentActitivy)
-            .add(R.id.containter,ProfileFragmentActivity)
-            .add(R.id.containter,FavorisFragmentActivity)
-            .add(R.id.containter,MessangerFragmentActivity)
+            .add(R.id.containter, MapsFragmentActivity)
+            .add(R.id.containter, SearchFragmentActitivy)
+            .add(R.id.containter, ProfileFragmentActivity)
+            .add(R.id.containter, FavorisFragmentActivity)
+            .add(R.id.containter, MessangerFragmentActivity)
             .commit()
 
         MenuBottom.menu.findItem(R.id.action_maps).isChecked = true
-       // setTabStateFragment(TabState.MAPS)
+        // setTabStateFragment(TabState.MAPS)
 
-        Log.d(TAG,"Fin d'affichage des menus")
+        Log.d(TAG, "Fin d'affichage des menus")
     }
 
     private fun setTabStateFragment(state: TabState) {
-        var transaction : FragmentTransaction =  supportFragmentManager.beginTransaction()
+        var transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
 
         when (state) {
             TabState.SEARCH -> {
@@ -91,8 +118,8 @@ class MainActivity : AppCompatActivity() {
 
                 }
             }
-            TabState.PROFILE ->{
-                run{
+            TabState.PROFILE -> {
+                run {
                     transaction.show(ProfileFragmentActivity)
                     transaction.hide(SearchFragmentActitivy)
                     transaction.hide(MapsFragmentActivity)
@@ -100,8 +127,8 @@ class MainActivity : AppCompatActivity() {
                     transaction.hide(MessangerFragmentActivity)
                 }
             }
-            TabState.MESSENGER ->{
-                run{
+            TabState.MESSENGER -> {
+                run {
                     transaction.show(MessangerFragmentActivity)
                     transaction.hide(SearchFragmentActitivy)
                     transaction.hide(MapsFragmentActivity)
@@ -120,10 +147,10 @@ class MainActivity : AppCompatActivity() {
         MAPS,
         PROFILE
     }
-    private fun SetFragment(frament: Fragment)
-    {
-        var fragmentTransation: FragmentTransaction =  supportFragmentManager.beginTransaction()
-        fragmentTransation.replace(R.id.containter,frament)
+
+    private fun SetFragment(frament: Fragment) {
+        var fragmentTransation: FragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransation.replace(R.id.containter, frament)
         fragmentTransation.commit()
     }
 
@@ -137,7 +164,7 @@ class MainActivity : AppCompatActivity() {
                 setTabStateFragment(TabState.MAPS)
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.action_profile ->{
+            R.id.action_profile -> {
                 setTabStateFragment(TabState.PROFILE)
                 return@OnNavigationItemSelectedListener true
             }
@@ -145,7 +172,7 @@ class MainActivity : AppCompatActivity() {
                 setTabStateFragment(TabState.FAVORIS)
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.action_messenger ->{
+            R.id.action_messenger -> {
                 setTabStateFragment(TabState.MESSENGER)
                 return@OnNavigationItemSelectedListener true
             }
@@ -155,13 +182,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.navigation_main,menu)
+        menuInflater.inflate(R.menu.navigation_main, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
-            R.id.action_settings ->{
+        return when (item.itemId) {
+            R.id.action_settings -> {
                 startActivity(Intent(this, SettingsActivity::class.java))
                 return true
             }

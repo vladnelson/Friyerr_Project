@@ -1,5 +1,6 @@
 package com.example.friyerr_mobile.view.ui.Fragment
 
+import android.animation.ObjectAnimator
 import android.app.DatePickerDialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -8,10 +9,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.LinearInterpolator
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.friyerr_mobile.R
+import com.example.friyerr_mobile.view.ui.activity.MainActivity
 import kotlinx.android.synthetic.main.fragment_search_type_period.*
 import java.util.*
 
@@ -19,6 +22,7 @@ import java.util.*
 class SearchTypePeriodFragment : Fragment() {
     companion object {
         val TAG :String ="SearchTypePeriod"
+        var progres= 80
     }
 
     var mDateSetListener :  DatePickerDialog.OnDateSetListener? = null
@@ -34,6 +38,16 @@ class SearchTypePeriodFragment : Fragment() {
         var editStartForSearchTypePeriod =rootView.findViewById<TextView>(R.id.EditStartForSearchTypePeriod)
         var editEndForSearchTypePeriod= rootView.findViewById<TextView>(R.id.EditEndForSearchTypePeriod)
 
+        var PGBPeriode = rootView.findViewById<ProgressBar>(R.id.ProgressbarForPeriode)
+
+        var obj : ObjectAnimator = ObjectAnimator.ofInt(PGBPeriode,"progress",
+            MainActivity.CompteurStateOld,
+            progres
+        )
+        obj.duration=500
+        obj.interpolator= LinearInterpolator()
+        obj.start()
+        MainActivity.CompteurStateOld= progres
 
         btnNextForSearchPeriod.setOnClickListener{
             val childFragment = SearchResultFragment()

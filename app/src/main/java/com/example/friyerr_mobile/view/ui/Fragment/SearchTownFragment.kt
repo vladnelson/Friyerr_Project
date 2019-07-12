@@ -1,10 +1,13 @@
 package com.example.friyerr_mobile.view.ui.Fragment
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.LinearInterpolator
 import android.widget.ImageButton
+import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,17 +17,18 @@ import com.example.friyerr_mobile.R
 import com.example.friyerr_mobile.service.`interface`.OnItemClickListenerList
 import com.example.friyerr_mobile.service.model.Town
 import com.example.friyerr_mobile.view.adapter.ListTownAdapter
+import com.example.friyerr_mobile.view.ui.activity.MainActivity
 import kotlinx.android.synthetic.main.fragment_town.*
 
 
-
-class SearchTownFragment : Fragment() , SwipeRefreshLayout.OnRefreshListener {
+class SearchTownFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
     companion object {
-        val TAG :String ="SearchTown"
+        val TAG: String = "SearchTown"
+        var progres = 50
     }
 
-    private var mRecyclerView :RecyclerView? = null
-    private var mSwipeRefreshLayout :SwipeRefreshLayout? = null
+    private var mRecyclerView: RecyclerView? = null
+    private var mSwipeRefreshLayout: SwipeRefreshLayout? = null
 
 
     override fun onCreateView(
@@ -35,28 +39,40 @@ class SearchTownFragment : Fragment() , SwipeRefreshLayout.OnRefreshListener {
         var rootView = inflater.inflate(R.layout.fragment_town, container, false)
 
 
-         mRecyclerView  =  rootView.findViewById<RecyclerView>(R.id.ListCity)
+        mRecyclerView = rootView.findViewById(R.id.ListCity)
         ChargeTown(mRecyclerView!!)
-        var mImgReturnForFragmenttown =  rootView.findViewById<ImageButton>(R.id.ImgReturnForFragmenttown)
-        mImgReturnForFragmenttown.setOnClickListener{
+        var mImgReturnForFragmenttown = rootView.findViewById<ImageButton>(R.id.ImgReturnForFragmenttown)
+        mImgReturnForFragmenttown.setOnClickListener {
             fragmentManager?.popBackStack()
         }
 
 
+        var PGRTown =  rootView.findViewById<ProgressBar>(R.id.ProgressbarForTown)
 
-         mSwipeRefreshLayout =  rootView.findViewById<SwipeRefreshLayout>(R.id.swiperefresh)
+        var obj : ObjectAnimator = ObjectAnimator.ofInt(PGRTown,"progress",
+            MainActivity.CompteurStateOld,
+            progres
+        )
+        obj.duration=500
+        obj.interpolator= LinearInterpolator()
+        obj.start()
+        MainActivity.CompteurStateOld= progres
+
+        mSwipeRefreshLayout = rootView.findViewById(R.id.SRLTown)
         mSwipeRefreshLayout?.setOnRefreshListener(this)
         mSwipeRefreshLayout?.setColorSchemeResources(
             R.color.colorPrimary,
             android.R.color.holo_green_dark,
             android.R.color.holo_orange_dark,
-            android.R.color.holo_blue_dark)
+            android.R.color.holo_blue_dark
+        )
+
         return rootView
     }
 
     override fun onRefresh() {
         ChargeTown(mRecyclerView!!)
-        mSwipeRefreshLayout?.isRefreshing=false
+        mSwipeRefreshLayout?.isRefreshing = false
     }
 
 
@@ -64,16 +80,17 @@ class SearchTownFragment : Fragment() , SwipeRefreshLayout.OnRefreshListener {
         super.onActivityCreated(savedInstanceState)
 
     }
-  /*  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
-        ChargeTown(ListCity)
-        ImgReturnForFragmenttown.setOnClickListener{
-            fragmentManager?.popBackStack()
-        }
-    }*/
+    /*  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+          super.onViewCreated(view, savedInstanceState)
+
+          ChargeTown(ListCity)
+          ImgReturnForFragmenttown.setOnClickListener{
+              fragmentManager?.popBackStack()
+          }
+      }*/
     private fun ChargeTown(listCity: RecyclerView) {
-        var townList :  ArrayList<Town> =   ArrayList<Town>()
+        var townList: ArrayList<Town> = ArrayList<Town>()
         townList.add(
             Town(
                 "BORDEAUX",
@@ -105,8 +122,8 @@ class SearchTownFragment : Fragment() , SwipeRefreshLayout.OnRefreshListener {
             )
         )
 
-        listCity.layoutManager= LinearLayoutManager(context)
-        listCity.adapter= ListTownAdapter(
+        listCity.layoutManager = LinearLayoutManager(context)
+        listCity.adapter = ListTownAdapter(
             this.activity,
             townList,
             context,
@@ -120,11 +137,11 @@ class SearchTownFragment : Fragment() , SwipeRefreshLayout.OnRefreshListener {
 
     }
 
-    fun openActionClickItem( ){
-       // Toast.makeText(this.context,message,Toast.LENGTH_SHORT).show()
+    fun openActionClickItem() {
+        // Toast.makeText(this.context,message,Toast.LENGTH_SHORT).show()
         val childFragment = SearchTypePriceFragment()
         val transaction = fragmentManager?.beginTransaction()
-        transaction?.replace(R.id.containterSearch,childFragment,SearchTypePriceFragment.TAG)
+        transaction?.replace(R.id.containterSearch, childFragment, SearchTypePriceFragment.TAG)
         transaction?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)?.addToBackStack(TAG)?.commit()
 
     }

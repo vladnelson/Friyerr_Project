@@ -17,7 +17,7 @@ import com.example.friyerr_mobile.view.ui.ViewHolder.AccomodationVH
 import com.squareup.picasso.Picasso
 import java.util.ArrayList
 
-class ListAccomondationAdapter(private  var acitivity: FragmentActivity?, private var listAccommondatation: ArrayList<Accommodation>, private  var context: Context?, private  val listener: OnItemClickListenerList<Accommodation>)  : RecyclerView.Adapter<AccomodationVH>()
+class ListAccomondationAdapter(private  var acitivity: FragmentActivity?, private var listAccommondatation: ArrayList<Accommodation>, private  var context: Context?, private  val listener: OnItemClickListenerList<Accommodation> )  : RecyclerView.Adapter<AccomodationVH>()
 {
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): AccomodationVH {
         var inflater : LayoutInflater =  LayoutInflater.from(p0.context)
@@ -33,6 +33,16 @@ class ListAccomondationAdapter(private  var acitivity: FragmentActivity?, privat
     override fun onBindViewHolder(p0: AccomodationVH, p1: Int)  {
         var pair : Accommodation = listAccommondatation[p1]
         p0.LoadView(pair, listener)
+
+        p0.ImgBtnLike.setOnClickListener { view ->
+            pair.isLike=!pair.isLike
+
+            if (pair.isLike){
+                p0.ImgBtnLike.setImageResource(R.drawable.ic_favorite_yes_24dp)
+            }else{
+                p0.ImgBtnLike.setImageResource(R.drawable.ic_favorite_no_24dp)
+            }
+        }
     }
 }
 

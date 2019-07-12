@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 
 import com.example.friyerr_mobile.R
 import com.example.friyerr_mobile.service.`interface`.OnItemClickListenerList
@@ -27,23 +28,42 @@ private const val ARG_PARAM2 = "param2"
  * A simple [Fragment] subclass.
  *
  */
-class FavoriteSportsFragment : Fragment() {
+class FavoriteSportsFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
+    private var ListAccomodation: RecyclerView? = null
+    private var mSwipeRefreshLayout: SwipeRefreshLayout? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        var rootView= inflater.inflate(R.layout.fragment_favorite_sports, container, false)
-        var ListAccomodation = rootView.findViewById<RecyclerView>(R.id.ListAccomondationFovorite)
+        var rootView = inflater.inflate(R.layout.fragment_favorite_sports, container, false)
+        ListAccomodation = rootView.findViewById(R.id.ListAccomondationFovorite)
+
+
+        mSwipeRefreshLayout = rootView.findViewById(R.id.SRLFavoriteSpot)
+
+        mSwipeRefreshLayout?.setOnRefreshListener(this)
+        mSwipeRefreshLayout?.setColorSchemeResources(
+            R.color.colorPrimary,
+            android.R.color.holo_green_dark,
+            android.R.color.holo_orange_dark,
+            android.R.color.holo_blue_dark
+        )
 
         ChargeAccomondation(ListAccomodation)
 
         return rootView
     }
 
-    private fun ChargeAccomondation(ListAccomondation: RecyclerView) {
-        var AccommodationList :  ArrayList<Accommodation> =   ArrayList<Accommodation>()
+
+    override fun onRefresh() {
+        ChargeAccomondation(ListAccomodation)
+        mSwipeRefreshLayout?.isRefreshing = false
+    }
+
+    private fun ChargeAccomondation(ListAccomondation: RecyclerView?) {
+        var AccommodationList: ArrayList<Accommodation> = ArrayList<Accommodation>()
         AccommodationList.add(
             Flat(
                 "",
@@ -233,12 +253,11 @@ class FavoriteSportsFragment : Fragment() {
         )
 
 
-
-        var mLayoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
-        mLayoutManager.gapStrategy=StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS
-        ListAccomondation.setHasFixedSize(true)
-        ListAccomondation.layoutManager= mLayoutManager
-        ListAccomondation.adapter= ListAccomondationFavoriteAdapter(
+        var mLayoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        mLayoutManager.gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS
+        ListAccomondation?.setHasFixedSize(true)
+        ListAccomondation?.layoutManager = mLayoutManager
+        ListAccomondation?.adapter = ListAccomondationFavoriteAdapter(
             this.activity,
             AccommodationList,
             context,
@@ -253,12 +272,13 @@ class FavoriteSportsFragment : Fragment() {
     }
 
 
-    fun openActionClickItem(){
+    fun openActionClickItem() {
         // Toast.makeText(this.context,message,Toast.LENGTH_SHORT).show()
         val childFragment = AccommodationDetailFragment()
         val transaction = fragmentManager?.beginTransaction()
-        transaction?.replace(R.id.containterSearch,childFragment,AccommodationDetailFragment.TAG)
-        transaction?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)?.addToBackStack(SearchResultFragment.TAG)?.commit()
+        transaction?.replace(R.id.containterSearch, childFragment, AccommodationDetailFragment.TAG)
+        transaction?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)?.addToBackStack(SearchResultFragment.TAG)
+            ?.commit()
     }
 
 
