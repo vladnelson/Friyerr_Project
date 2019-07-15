@@ -16,6 +16,7 @@ import com.example.friyerr_mobile.viewmodel.Account.LoginVM
 import com.facebook.*
 import com.facebook.login.LoginResult
 import org.json.JSONObject
+import java.net.URLEncoder
 
 
 class FriyerrLoginActivity : AppCompatActivity() {
@@ -79,11 +80,11 @@ class FriyerrLoginActivity : AppCompatActivity() {
 
                 LoginnformationXwwwFormUnlencoded.append("username")
                 LoginnformationXwwwFormUnlencoded.append("=")
-                LoginnformationXwwwFormUnlencoded.append(LoginInformation.login)
+                LoginnformationXwwwFormUnlencoded.append(URLEncoder.encode(LoginInformation.login,"UTF-8"))
                 LoginnformationXwwwFormUnlencoded.append("&")
                 LoginnformationXwwwFormUnlencoded.append("password")
                 LoginnformationXwwwFormUnlencoded.append("=")
-                LoginnformationXwwwFormUnlencoded.append(LoginInformation.passwordLogin)
+                LoginnformationXwwwFormUnlencoded.append(URLEncoder.encode(LoginInformation.passwordLogin,"UTF-8"))
                 LoginnformationXwwwFormUnlencoded.append("&")
                 LoginnformationXwwwFormUnlencoded.append("grant_type=password")
 

@@ -22,6 +22,7 @@ import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
 import java.nio.charset.StandardCharsets
+import kotlin.math.log
 
 
 /**
@@ -57,11 +58,13 @@ internal class PostRequestLogin(val Context: Activity) : AsyncTask<String, Strin
         conn = URL(PresentationActivity.URLAPI + PresentationActivity.UrlApiLogin).openConnection() as HttpURLConnection
         conn.requestMethod = PresentationActivity.MethodePOST
         conn.connectTimeout = PresentationActivity.RequestTimeOut
-        // conn.useCaches =false
-        //  conn.doInput=true
-        // conn.doOutput=true
-        conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded")
 
+        // conn.useCaches =false
+        conn.doInput = true
+        conn.doOutput = true
+        conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded")
+        conn.setRequestProperty("charset", "utf-8")
+        conn.setRequestProperty("Content-Length", Integer.toString(params[0]!!.toByteArray().count()))
 
         var postData: ByteArray = params[0]!!.toByteArray(StandardCharsets.UTF_8)
         try {
@@ -69,6 +72,8 @@ internal class PostRequestLogin(val Context: Activity) : AsyncTask<String, Strin
 
             val out = DataOutputStream(conn.outputStream)
             out.write(postData)
+
+            Log.d("testtttt" ,params[0]!!.toString() )
             try {
                 out.flush()
 

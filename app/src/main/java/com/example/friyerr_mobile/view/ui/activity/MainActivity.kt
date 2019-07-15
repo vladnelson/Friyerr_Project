@@ -82,6 +82,8 @@ class MainActivity : AppCompatActivity() {
         // setTabStateFragment(TabState.MAPS)
 
         Log.d(TAG, "Fin d'affichage des menus")
+
+
     }
 
     private fun setTabStateFragment(state: TabState) {
